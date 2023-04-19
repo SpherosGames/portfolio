@@ -7,41 +7,58 @@
     <title>Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header class="bg-blue-500 flex justify-around min-h-20">
-        <p>Home</p>
-        <button class="rounded-none bg-white hover:bg-blue-500 active:bg-gray-500">Home</button>
-        <button class="rounded-none bg-white hover:bg-blue-500 active:bg-gray-500 active:dropdown">Projects</button>
-    </header>
-
-    <div id="dropdown" class="bg-gray-500">
-        <div class="flex justify-around" aria-labelledby="dropdownDefaultButton">
-            <button>hi</button>
-            <button>hi</button>
-            <button>hi</button>
-            <button>hi</button>
-        </div>
-    </div>
-
-    <div class="main ">
-        <div class="cards flex justify-between space-x-10">
-            <div class="card bg-blue-500 rounded">
-                <img src="Img/TankShot ScreenShot.png">
-                <p>This is a card</p>
-            </div>
-            <div class="card bg-blue-500 rounded">
-                <img src="Img/TankShot ScreenShot.png">
-                <p>This is a card</p>
-            </div>
-            <div class="card bg-blue-500 rounded">
-                <img src="Img/TankShot ScreenShot.png">
-                <p>This is a card</p>
-            </div>
-            <div class="card bg-blue-500 rounded">
-                <img src="Img/TankShot ScreenShot.png">
-                <p>This is a card</p>
+<body class="bg-gradient-to-t from-cyan-100 to-blue-600">
+    <div class="navbar opacity-100">
+        <header class="bg-gradient-to-t from-blue-500 to-blue-600 flex justify-around text-center min-h-[2em]">
+            <button class="bg-gradient-to-t from-blue-500 to-blue-600 hover:text-gray-300 active:text-white">Jan-Jaap Bol</button>
+            <button class="bg-gradient-to-t from-blue-500 to-blue-600 hover:text-gray-300 active:text-white">Home</button>
+            <button class="bg-gradient-to-t from-blue-500 to-blue-600 hover:text-gray-300 active:text-white active:dropdown">Projects</button>
+        </header>
+    
+        <div id="dropdown" class="flex justify-center z-50">
+            <div class="flex flex-col bg-gray-500 min-w-[30em] rounded-b-lg justify-around">
+                <button class="bg-gray-500 hover:text-gray-300 active:text-white">Pong</button>
+                <button class="bg-gray-500 hover:text-gray-300 active:text-white">Tank Shot</button>
+                <button class="bg-gray-500 hover:text-gray-300 active:text-white">Racing Game</button>
+                <button class="bg-gray-500 hover:text-gray-300 active:text-white">Tower Defence Game</button>
             </div>
         </div>
     </div>
+
+    <div class="main justify-center">
+        <div class="relative hero flex justify-center my-10">
+            <img src="Img/TankShot ScreenShot.png" class="rounded min-h-[30em]"><img>
+            <p class="absolute text-center bottom-8 text-3xl text-gray-600">Welcome To My Portfolio</p>
+            <p class="absolute text-center bottom-1 text-xl text-gray-500 font-medium">Made By Jan-Jaap Bol</p>
+        </div>
+
+        <div class="cards flex justify-between space-x-10 mb-5 mx-10">
+            <div class="card bg-blue-500 rounded flex flex-col justify-center shadow-2xl hover:opacity-90 hover:animate-pulse">
+                <img src="Img/TankShot ScreenShot.png" class="rounded">
+                <button class="absolute bg-gray-500 mx-32 mt-28 min-w-[6em] min-h-[3em] font-medium text-gray-200 rounded hover:text-gray-300 active:text-white">More Info</button>
+                <p class="text-center">Pong</p>
+            </div>
+            <div class="card bg-blue-500 rounded flex flex-col justify-center shadow-2xl hover:opacity-90 hover:animate-pulse">
+                <img src="Img/TankShot ScreenShot.png" class="rounded">
+                <button class="absolute bg-gray-500 mx-32 mt-28 min-w-[6em] min-h-[3em] font-medium text-gray-200 rounded hover:text-gray-300 active:text-white">More Info</button>
+                <p class="text-center">Tank Shot</p>
+            </div>
+            <div class="card bg-blue-500 rounded flex flex-col justify-center shadow-2xl hover:opacity-90 hover:animate-pulse">
+                <img src="Img/TankShot ScreenShot.png" class="rounded">
+                <button class="absolute bg-gray-500 mx-32 mt-28 min-w-[6em] min-h-[3em] font-medium text-gray-200 rounded hover:text-gray-300 active:text-white">More Info</button>
+                <p class="text-center">Race Game</p>
+            </div>
+            <div class="card bg-blue-500 rounded flex flex-col justify-center shadow-2xl hover:opacity-90 hover:animate-pulse">
+                <img src="Img/TankShot ScreenShot.png" class="rounded">
+                <button class="absolute bg-gray-500 mx-32 mt-28 min-w-[6em] min-h-[3em] font-medium text-gray-200 rounded hover:text-gray-300 active:text-white">More Info</button>
+                <p class="text-center">Tower Defence</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gradient-to-t from-blue-500 to-blue-600 text-center p-5">
+        <p>Email: janjaapbol93@gmail.com</p>
+        <p>Phone: 0623840141</p>
+    </footer>
 </body>
 </html>
