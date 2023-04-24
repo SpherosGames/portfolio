@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="javascript.js"></script>
 </head>
 
-<body class="bg-gradient-to-b from-[#003459] to-[#00a8e8]">
-    <div class="navbar opacity-100">
+<body class="select-none bg-gradient-to-b from-[#003459] to-[#00a8e8]" onload="DeativateDropDown()">
+    <div class="navbar fixed z-50 top-0 place-self-center w-full opacity-50 backdrop-blur-3xl">
         <header class="bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex justify-around text-center h-[2em]">
             <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg" href="#">Jan-Jaap Bol</a>
             <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg" href="index.html">Home</a>
-            <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg">Projects</a>
+            <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg" onclick="ToggleDropDown()">Projects</a>
             <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg" href="Contact.html">Contact</a>
         </header>
     
-        <div id="dropdown" class="flex justify-center">
-            <div class="bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around">
+        <div class="flex justify-center">
+            <div id="DropDown" class="absolute bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around">
                 <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg text-center" href="Pong.html">Pong</a>
                 <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg text-center" href="TankShot.html">Tank Shot</a>
                 <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg text-center" href="RacingGame.html">Racing Game</a>
@@ -26,6 +27,8 @@
             </div>
         </div>
     </div>
+
+    <p class="text-center text-white text-7xl lg:text-9xl my-10 font-bold tracking-wide">About Me</p>
 
     <div class="main flex flex-col">
         <div class="firstContainer flex flex-col sm:flex-row justify-between mt-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[90%] rounded-none lg:rounded-r items-center place-self-start">
@@ -46,21 +49,23 @@
             </p>
         </div>
 
+        <p class="text-center text-white text-7xl lg:text-9xl my-10 font-bold tracking-wide">Contact</p>
+
         <form class="flex flex-col space-y-3 w-1/2 place-self-center bg-gradient-to-b p-5 mb-5 from-[#007ea7] to-[#00a8e8] rounded">
-            <div class="names flex flex-col md:flex-row md:space-x-5">
+            <div class="names flex flex-col sm:max-md:space-y-3 md:flex-row md:space-x-5">
                 <div class="fname">
                     <label>First name : </label>
-                    <input class="placeholder:italic placeholder:text-slate-400 bg-white rounded" placeholder="first name" type="text" name="search" required/>
+                    <input class="placeholder:indent-2 placeholder:italic placeholder:text-slate-400 bg-white rounded" size="10" placeholder="first name" type="text" name="search" required/>
                 </div>
                 <div class="lname">
                     <label>Last name : </label>
-                    <input class="placeholder:italic placeholder:text-slate-400 bg-white rounded" placeholder="last name" type="text" name="search" required/>
+                    <input class="placeholder:indent-2 placeholder:italic placeholder:text-slate-400 bg-white rounded" size="10" placeholder="last name" type="text" name="search" required/>
                 </div>
             </div>
             <label>email : </label>
-            <input class="placeholder:italic placeholder:text-slate-400 bg-white rounded" placeholder="email" type="email" name="search" required/>
+            <input class="placeholder:indent-2 placeholder:italic placeholder:text-slate-400 bg-white rounded" placeholder="email" type="email" name="search" required/>
             <label>message : </label>
-            <input class="placeholder:italic placeholder:text-slate-400 bg-white rounded" placeholder="message" type="textarea" name="search" required/>
+            <input class="placeholder:indent-2 placeholder:italic placeholder:text-slate-400 bg-white rounded" placeholder="message" type="textarea" name="search" required/>
             <input type="submit" value="submit" class="bg-[#007ea7] rounded-full w-16 place-self-center hover:bg-[#00a8e8] active:bg-[#003459]"/>
         </form>
     </div>

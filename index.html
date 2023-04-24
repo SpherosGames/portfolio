@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="javascript.js"></script>
 </head>
 
-<body class="bg-gradient-to-b from-[#003459] to-[#00a8e8]">
-    <div class="navbar opacity-100">
+<body class="select-none bg-gradient-to-b from-[#003459] to-[#00a8e8]" onload="DeativateDropDown()">
+    <div class="navbar fixed z-50 top-0 place-self-center w-full opacity-50">
         <header class="bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex justify-around text-center h-[2em]">
             <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg" href="#">Jan-Jaap Bol</a>
             <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg" href="index.html">Home</a>
-            <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg">Projects</a>
+            <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg" onclick="ToggleDropDown()">Projects</a>
             <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg" href="Contact.html">Contact</a>
         </header>
     
-        <div id="dropdown" class="flex justify-center">
-            <div class="bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around">
+        <div class="flex justify-center">
+            <div id="DropDown" class="absolute bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around">
                 <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg text-center" href="Pong.html">Pong</a>
                 <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg text-center" href="TankShot.html">Tank Shot</a>
                 <a class="hover:text-gray-300 active:text-white text-ms lg:text-lg text-center" href="RacingGame.html">Racing Game</a>
@@ -28,7 +29,7 @@
     </div>
 
     <div class="main justify-center">
-        <div class="relative hero flex justify-center my-10">
+        <div class="relative hero flex justify-center my-10 ">
             <img src="Img/TankShot ScreenShot.png" class="rounded w-[50em]"><img>
             <p class="absolute text-center bottom-5 md:bottom-8 sm:text-2xl text-ms text-gray-600">Welcome To My Portfolio</p>
             <p class="absolute text-center bottom-1 text-xs sm:text-sm text-gray-500 font-medium">Made By Jan-Jaap Bol</p>
@@ -37,22 +38,22 @@
         <div class="cards flex flex-col md:flex-row justify-between max-md:space-y-10 md:space-x-10 mb-5 mx-10">
             <div class="relative card bg-[#00a8e8] rounded flex flex-col justify-center hover:shadow-2xl">
                 <img src="Img/TankShot ScreenShot.png" class="rounded">
-                <button class="absolute bg-gray-500 bottom-10 left-[40%] w-[5em] h-[3em] text-xs lg:text-xl font-medium text-gray-200 rounded hover:text-gray-300 hover:animate-pulse active:text-white">More Info</button>
+                <a class="text-center self-center opacity-80 align-middle absolute bg-[#007ea7] bottom-8 place-self-center w-[5em] h-[1.5em] text-xs lg:text-xl font-medium text-gray-200 rounded hover:text-gray-300 hover:animate-pulse active:text-white">More Info</a>
                 <p class="text-center">Pong</p>
             </div>
             <div class="relative card bg-[#00a8e8] rounded flex flex-col justify-center hover:shadow-2xl">
                 <img src="Img/TankShot ScreenShot.png" class="rounded">
-                <button class="absolute bg-gray-500 bottom-10 left-[40%] w-[5em] h-[3em] text-xs lg:text-xl font-medium text-gray-200 rounded hover:text-gray-300 hover:animate-pulse active:text-white">More Info</button>
+                <a class="text-center self-center opacity-80 align-middle absolute bg-[#007ea7] bottom-8 place-self-center w-[5em] h-[1.5em] text-xs lg:text-xl font-medium text-gray-200 rounded hover:text-gray-300 hover:animate-pulse active:text-white">More Info</a>
                 <p class="text-center">Tank Shot</p>
             </div>
             <div class="relative card bg-[#00a8e8] rounded flex flex-col justify-center hover:shadow-2xl">
                 <img src="Img/TankShot ScreenShot.png" class="rounded">
-                <button class="absolute bg-gray-500 bottom-10 left-[40%] w-[5em] h-[3em] text-xs lg:text-xl font-medium text-gray-200 rounded hover:text-gray-300 hover:animate-pulse active:text-white">More Info</button>
+                <a class="text-center self-center opacity-80 align-middle absolute bg-[#007ea7] bottom-8 place-self-center w-[5em] h-[1.5em] text-xs lg:text-xl font-medium text-gray-200 rounded hover:text-gray-300 hover:animate-pulse active:text-white">More Info</a>
                 <p class="text-center">Race Game</p>
             </div>
             <div class="relative card bg-[#00a8e8] rounded flex flex-col justify-center hover:shadow-2xl">
                 <img src="Img/TankShot ScreenShot.png" class="rounded">
-                <button class="absolute bg-gray-500 bottom-10 left-[40%] w-[5em] h-[3em] text-xs lg:text-xl font-medium text-gray-200 rounded hover:text-gray-300 hover:animate-pulse active:text-white">More Info</button>
+                <a class="text-center self-center opacity-80 align-middle absolute bg-[#007ea7] bottom-8 place-self-center w-[5em] h-[1.5em] text-xs lg:text-xl font-medium text-gray-200 rounded hover:text-gray-300 hover:animate-pulse active:text-white">More Info</a>
                 <p class="text-center">Tower Defence</p>
             </div>
         </div>
