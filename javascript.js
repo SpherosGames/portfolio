@@ -4,13 +4,11 @@ function DeativateDropDown()
 {
     if(activateDropDown < 0)
     {
-        console.log("Dropdown Activate");
-        document.getElementById("DropDown").style.visibility = 'visible';
+        document.getElementById("DropDown").classList.remove('-translate-y-36');
     }
     else
     {
-        console.log("Dropdown Deactivate");
-        document.getElementById("DropDown").style.visibility = 'hidden';
+        document.getElementById("DropDown").classList.add('-translate-y-36');
     }
 }
 
@@ -20,12 +18,10 @@ function ToggleDropDown()
     
     if(activateDropDown < 0)
     {
-        console.log("Dropdown Activate");
-        document.getElementById("DropDown").style.visibility = 'visible';
+        document.getElementById("DropDown").classList.remove('-translate-y-36');
     }
     else
     {
-        console.log("Dropdown Deactivate");
-        document.getElementById("DropDown").style.visibility = 'hidden';
+        document.getElementById("DropDown").classList.add('-translate-y-36');
     }
 }
