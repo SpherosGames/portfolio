@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="javascript.js"></script>
+</head>
+
+<body class="select-none bg-gradient-to-b from-[#003459] to-[#00a8e8]" onload="DeativateDropDown()">
+    <div class="z-50 navbar fixed top-0 place-self-center w-full opacity-50">
+        <header class="bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex justify-around text-center h-[2em]">
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="#">Jan-Jaap Bol</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="index.html">Home</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" onclick="ToggleDropDown()">Projects</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="Contact.html">Contact</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="About.html">About</a>
+        </header>
+    
+        <div class="flex justify-center">
+            <div id="DropDown" class="-translate-y-60 transition-transform ease-in-out duration-150 absolute bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around">
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="AllProjects.html">All Projects</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="Pong.html">Pong</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="TankShot.html">Tank Shot</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="RacingGame.html">Racing Game</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="TowerDefenceGame.html">Tower Defence Game</a>
+            </div>
+        </div>
+    </div>
+
+        <p class="text-center text-white text-7xl lg:text-9xl my-10 font-bold tracking-wide">Contact</p>
+
+    <div class="main flex flex-col">
+        <form class="flex flex-col space-y-3 w-1/2 place-self-center bg-gradient-to-b p-5 mb-5 from-[#007ea7] to-[#00a8e8] rounded">
+            <div class="names flex flex-col sm:max-md:space-y-3 md:flex-row md:space-x-5">
+                <div class="fname">
+                    <label>First name : </label>
+                    <input class="placeholder:indent-2 placeholder:italic placeholder:text-slate-400 bg-white rounded" size="10" placeholder="first name" type="text" name="search" required/>
+                </div>
+                <div class="lname">
+                    <label>Last name : </label>
+                    <input class="placeholder:indent-2 placeholder:italic placeholder:text-slate-400 bg-white rounded" size="10" placeholder="last name" type="text" name="search" required/>
+                </div>
+            </div>
+            <label>email : </label>
+            <input class="placeholder:indent-2 placeholder:italic placeholder:text-slate-400 bg-white rounded" placeholder="email" type="email" name="search" required/>
+            <label>message : </label>
+            <input class="placeholder:indent-2 placeholder:italic placeholder:text-slate-400 bg-white rounded" placeholder="message" type="textarea" name="search" required/>
+            <input type="submit" value="submit" class="bg-[#007ea7] rounded-full w-16 place-self-center hover:bg-[#00a8e8] active:bg-[#003459]"/>
+        </form>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2389.000209330786!2d6.550206596789561!3d53.21784460000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c9cd4932766115%3A0x84e74cd57cc4d101!2sHet%20Kasteel!5e0!3m2!1sen!2snl!4v1682492434586!5m2!1sen!2snl"
+         class="w-[50%] h-[30em] rounded place-self-center my-5" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <footer class="flex flex-col bg-gradient-to-b from-[#007ea7] to-[#00a8e8] text-center p-5 space-y-3">
+        <div class="icons flex flex-col place-self-center sm:flex-row sm:space-x-10">
+            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl  hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
+            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
+            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
+            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
+            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
+            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
+            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
+        </div>
+        <div class="info">
+            <p>Email: <a class="select-all hover:text-white">janjaapbol93@gmail.com</a></p>
+            <p>Phone: <a class="select-all hover:text-white">0623840141</a></p>
+        </div>
+        <p class="select-all hover:text-white w-15 place-self-center">Spheros Games</p>
+    </footer>
+</body>
+</html>
