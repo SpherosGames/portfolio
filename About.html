@@ -1,72 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="javascript.js"></script>
-</head>
+  </head>
 
-<body class="select-none bg-gradient-to-b from-[#003459] to-[#00a8e8]" onload="DeativateDropDown()">
+  <body
+    class="select-none bg-gradient-to-b from-[#003459] to-[#00a8e8]"
+    onload="DeativateDropDown()"
+  >
     <div class="z-50 navbar fixed top-0 place-self-center w-full opacity-50">
-        <header class="bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex justify-around text-center h-[2em]">
-            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="#">Jan-Jaap Bol</a>
-            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="index.html">Home</a>
-            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" onclick="ToggleDropDown()">Projects</a>
-            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="Contact.html">Contact</a>
-            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="About.html">About</a>
-        </header>
-    
-        <div class="flex justify-center">
-            <div id="DropDown" class="-translate-y-60 transition-transform ease-in-out duration-150 absolute bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around">
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="AllProjects.html">All Projects</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="Pong.html">Pong</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="TankShot.html">Tank Shot</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="RacingGame.html">Racing Game</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="TowerDefenceGame.html">Tower Defence Game</a>
-            </div>
+      <header
+        class="bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex justify-around text-center h-[2em]"
+      >
+        <a
+          class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+          href="#"
+          >Jan-Jaap Bol</a
+        >
+        <a
+          class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+          href="index.html"
+          >Home</a
+        >
+        <a
+          class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+          onclick="ToggleDropDown()"
+          >Projects</a
+        >
+        <a
+          class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+          href="Contact.html"
+          >Contact</a
+        >
+        <a
+          class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+          href="About.html"
+          >About</a
+        >
+      </header>
+
+      <div class="flex justify-center">
+        <div
+          id="DropDown"
+          class="-translate-y-60 transition-transform ease-in-out duration-150 absolute bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around"
+        >
+          <a
+            class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+            href="AllProjects.html"
+            >All Projects</a
+          >
+          <a
+            class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+            href="Pong.html"
+            >Pong</a
+          >
+          <a
+            class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+            href="TankShot.html"
+            >Tank Shot</a
+          >
+          <a
+            class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+            href="RacingGame.html"
+            >Racing Game</a
+          >
+          <a
+            class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+            href="TowerDefenceGame.html"
+            >Tower Defence Game</a
+          >
         </div>
+      </div>
     </div>
 
-    <p class="text-center text-white text-7xl lg:text-9xl my-10 font-bold tracking-wide">About Me</p>
+    <p
+      class="text-center text-white text-7xl lg:text-9xl my-10 font-bold tracking-wide"
+    >
+      About Me
+    </p>
 
     <div class="main flex flex-col">
-        <div class="firstContainer flex flex-col-reverse sm:flex-row justify-between mt-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[90%] rounded-none lg:rounded-r items-center place-self-start">
-            <p class="text-center md:text-left p-5">
-                Hallo, ik ben jan-jaap bol. Een 1e jaars game developer student op het noorderpoort. <br>
-                Ik vind het heel erg leuk om mijn eigen spellen te maken. Ik doe dit in <a class="underline decoration-[#003459]/50 decoration-2">unity</a> en <a class="underline decoration-[#003459]/50 decoration-2">unreal engine</a>. <br>
-                Ik maak ook mijn eigen 2d en 3d art. 2d in <a class="underline decoration-[#003459]/50 decoration-2">aseprite</a> en 3d in <a class="underline decoration-[#003459]/50 decoration-2">blender</a>. <br>
-            </p>
-            <img class="rounded p-5" src="Img/TankShot ScreenShot.png">
-        </div>
+      <div
+        class="firstContainer flex flex-col-reverse sm:flex-row justify-between mt-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[50%] rounded-none lg:rounded-r items-center place-self-start"
+      >
+        <p class="text-center md:text-left p-5">
+          Hallo, ik ben Jan-Jaap Bol. Een 2e jaars game developer student op het
+          Noorderpoort. Ik ben als sinds jong geïnteresseerd in games en game
+          development. Ik begon met Scratch en Python. Voor mijn verjaardag
+          kreeg ik boeken daarover. Toen ik het eerste boek uit had, ging ik
+          verder met Python. Hier heb ik de basis geleerd van programmeren.
+          Daarna ben ik begonnen met Unity. Ik heb een paar leuke projecten
+          gemaakt in 2D.
+        </p>
+        <img class="rounded p-5" src="Img/TankShot ScreenShot.png" />
+      </div>
 
-        <div class="secondContainer flex flex-col sm:flex-row justify-between my-5 align-middle bg-gradient-to-r from-[#007ea7] to-[#00a8e8] w-full lg:w-[90%] rounded-none lg:rounded-l items-center place-self-end">
-            <img class="rounded p-5" src="Img/TankShot ScreenShot.png">
-            <p class="text-center md:text-right p-5">
-                Hallo, ik ben jan-jaap bol. Een 1e jaars game developer student op het noorderpoort. <br>
-                Ik vind het heel erg leuk om mijn eigen spellen te maken. Ik doe dit in <a class="underline decoration-[#003459]/50 decoration-2">unity</a> en <a class="underline decoration-[#003459]/50 decoration-2">unreal engine</a>. <br>
-                Ik maak ook mijn eigen 2d en 3d art. 2d in <a class="underline decoration-[#003459]/50 decoration-2">aseprite</a> en 3d in <a class="underline decoration-[#003459]/50 decoration-2">blender</a>. <br>
-            </p>
-        </div>
+      <div
+        class="secondContainer flex flex-col sm:flex-row justify-between my-5 align-middle bg-gradient-to-r from-[#007ea7] to-[#00a8e8] w-full lg:w-[50%] rounded-none lg:rounded-l items-center place-self-end"
+      >
+        <img class="rounded p-5" src="Img/TankShot ScreenShot.png" />
+        <p class="text-center md:text-left p-5">
+          Vlak voor het einde van mijn vmbo-opleiding, ging ik stagelopen bij de
+          Game Bakery. Hier heb ik veel dingen geleerd en gemerkt dat er nog
+          veel te leren valt. Daarna ben ik begonnen aan een game development
+          opleiding bij de Noorderpoort. Daar zit ik nu, 2e jaar. Ik geniet heel
+          erg van mijn tijd hier. Het is best makkelijk allemaal, maar ik geniet
+          wel van het feit dat ik fouten mag maken en begin kan gaan met mijn
+          eigen kleine projecten naast de grotere projecten. Ik probeer mijzelf
+          zo veel mogelijk uit te dagen. Zo heb ik voor mijn c# tekst rpg, niet
+          in de console gemaakt, maar gebruik ik monogame. Dit is een grotere
+          uitdaging, omdat ik collision detection, UI en nog veel meer in een
+          nieuwe library moest leren.
+        </p>
+      </div>
     </div>
 
-    <footer class="flex flex-col bg-gradient-to-b from-[#007ea7] to-[#00a8e8] text-center p-5 space-y-3">
-        <div class="icons flex flex-col place-self-center sm:flex-row sm:space-x-10">
-            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl  hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
-            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
-            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
-            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
-            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
-            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
-            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
-        </div>
-        <div class="info">
-            <p>Email: <a class="select-all hover:text-white">janjaapbol93@gmail.com</a></p>
-            <p>Phone: <a class="select-all hover:text-white">0623840141</a></p>
-        </div>
-        <p class="select-all hover:text-white w-15 place-self-center">Spheros Games</p>
+    <footer
+      class="flex flex-col bg-gradient-to-b from-[#007ea7] to-[#00a8e8] text-center p-5 space-y-3"
+    >
+      <div
+        class="icons flex flex-col place-self-center sm:flex-row sm:space-x-10"
+      >
+        <a
+          href="https://github.com/Doggy881"
+          target="_blank"
+          class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"
+        >
+          <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
+        </a>
+        <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
+        <a
+          href="https://github.com/Doggy881"
+          target="_blank"
+          class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"
+        >
+          <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
+        </a>
+        <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
+        <a
+          href="https://github.com/Doggy881"
+          target="_blank"
+          class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"
+        >
+          <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
+        </a>
+        <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
+        <a
+          href="https://github.com/Doggy881"
+          target="_blank"
+          class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"
+        >
+          <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
+        </a>
+      </div>
+      <div class="info">
+        <p>
+          Email:
+          <a class="select-all hover:text-white">janjaapbol93@gmail.com</a>
+        </p>
+        <p>Phone: <a class="select-all hover:text-white">0623840141</a></p>
+      </div>
+      <p class="select-all hover:text-white w-15 place-self-center">
+        Spheros Games
+      </p>
     </footer>
-</body>
+  </body>
 </html>
