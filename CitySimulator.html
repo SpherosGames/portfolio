@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="javascript.js"></script>
+    <link href="node_modules/rainbow-code/themes/css/tomorrow-night.css" rel="stylesheet" type="text/css" media="screen">
+
+</head>
+
+<body class="select-none bg-gradient-to-b from-[#003459] to-[#00a8e8]" onload="DeativateDropDown()">
+    <div class="z-50 navbar fixed top-0 place-self-center w-full opacity-50">
+        <header class="bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex justify-around text-center h-[2em]">
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+                href="#">Jan-Jaap Bol</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+                href="index.html">Home</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+                onclick="ToggleDropDown()">Projects</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+                href="Contact.html">Contact</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+                href="About.html">About</a>
+        </header>
+
+        <div class="flex justify-center">
+            <div id="DropDown"
+                class="-translate-y-60 transition-transform ease-in-out duration-150 absolute bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around">
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+                    href="AllProjects.html">All Projects</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+                    href="Pong.html">Pong</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+                    href="TankShot.html">Tank Shot</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+                    href="RacingGame.html">Racing Game</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+                    href="TowerDefenceGame.html">Tower Defence Game</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main flex flex-col">
+        <p class="text-center text-white text-7xl lg:text-9xl my-10 font-bold tracking-wide">
+            City Simulator
+        </p>
+
+        <video autoplay controls class="w-[50%] place-self-center">
+            <source src="Img/CitySimulator/City Simulator Demo.mp4" type="video/mp4" />
+        </video>
+
+        <div
+            class="flex flex-col col-span-auto sm:flex-row justify-between mt-5 p-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[80%] rounded-none lg:rounded-r items-center place-self-start">
+            <div class="w-[50%] place-self-center">
+                <p class="text-center text-3xl">AI system</p><br/>
+                <p class="text-center md:text-left">
+                    All cars are split into 2 parts. The data and the instance. The data
+                    are things like its name and age. This persists throughout the game.
+                    Whenever an ai enters a building its instance is destroyed, but the
+                    data is saved inside building. Every AI saves its spot in a building.
+                    This avoids that 2 ai's choose the same building to live in.
+                    <br/>
+                </p>
+            </div>
+            <div class="w-[50%] place-self-center">
+                <img class="rounded p-5 w-[70%] mx-auto" src="Img/CitySimulator/CitySimulatorAIInfo.png">
+                <p class="text-s text-gray-800 text-center">All the data that is saved when an AI occupies a building</p>
+            </div>
+        </div>
+
+        <div
+            class="flex flex-col col-span-auto sm:flex-row justify-between mt-5 p-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[80%] rounded-none lg:rounded-l items-center place-self-end">
+            <div class="w-[50%] place-self-center">
+                <p class="text-center text-3xl">Company system</p><br/>
+                <p class="text-center md:text-left">
+                    The white vans that you see in the video are for the company. The
+                    player can select the van to see their current cargo amount and what
+                    they are going to do. They can either: pickup products or deliver
+                    materials. Either way, they will spawn when necessary. They will go to
+                    the designated company and execute their action. The owner is the
+                    first ai to work at the company. It takes out a loan and immediately
+                    orders some materials. The company then slowly converts the materials
+                    into usable products. When there are enough products, they get sold.
+                    The owner gets all the profits, but also needs to pay tax. The tax
+                    goes to the player. The owner must pay of their loan, pay their
+                    employees and rent. Employees also must pay their rent and pay taxes.
+                    <br/>
+                </p>
+            </div>
+            <div class="w-[50%] place-self-center">
+                <img class="rounded p-5 w-[70%] mx-auto" src="Img/CitySimulator/CitySimulatorCompany.png">
+                <p class="text-s text-gray-800 text-center">A van that drops off its cargo into a company</p>
+            </div>
+        </div>
+
+    <div
+        class="flex flex-col col-span-auto sm:flex-row justify-between mt-5 p-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[80%] rounded-none lg:rounded-r items-center place-self-start">
+        <div class="w-[50%] place-self-center">
+            <p class="text-center text-3xl">Utilities</p><br/>
+            <p class="text-center md:text-left">
+                Some buildings need utility to function. To fulfil that
+                need, you must place down utility buildings. The buildings cost money
+                to place down and maintain.
+                <br/>
+            </p>
+        </div>
+        <div class="w-[50%] place-self-center">
+            <img class="rounded p-5 w-[70%] mx-auto" src="Img/CitySimulator/CitySimulatorUtility.png">
+            <p class="text-s text-gray-800 text-center">All utility needs are displayed above the building. The color indicates the severity.</p>
+        </div>
+    </div>
+
+    <div
+        class="flex flex-col col-span-auto sm:flex-row justify-between mt-5 p-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[80%] rounded-none lg:rounded-l items-center place-self-end">
+        <div class="w-[50%] place-self-center">
+            <p class="text-center text-3xl">UI</p><br/>
+            <p class="text-center md:text-left">
+                Because this is a management game, it needs solid UI. I have made a simple taxes slider. This doesn’t
+                have any impact on happiness, as there is no system for that yet. In the income panel you can see the
+                total expenses and income. There is a bottom bar. In there you can change the name of the city, the
+                current temperature, current balance and the amount of people that live in your city. Above that you can
+                see a button for each of the placeable buildings. When you click on any vehicle you can see some
+                information about it. For a car, you can see the passengers age, name and more. For a van, you can see
+                its current cargo and what its going to do.
+                <br/>
+            </p>
+        </div>
+        <div class="w-[50%] place-self-center">
+            <img class="rounded p-5 w-[70%] mx-auto" src="Img/CitySimulator/CitySimulatorUI.png">
+            <p class="text-s text-gray-800 text-center">An overview of all the UI</p>
+        </div>
+    </div>
+
+    <p class="w-fit rounded mx-auto p-5 text-3xl text-gray-300 mt-5 outline">Code Showcase</p><br/>
+
+    <div>
+        <div class="w-[80%] mx-auto bg-[#007ea7] rounded m-5 p-5">
+            <p class="text-center text-3xl">AIData code</p><br/>
+            <pre>
+                <code data-language="csharp">
+                    using UnityEngine;
+
+                    [System.Serializable]
+                    public class AIData
+                    {
+                        [SerializeField] private string name;
+                        [SerializeField] private int age;
+                        [SerializeField] private Sex sex;
+                        [SerializeField] private GameObject reference;
+                        [SerializeField] private Company work;
+                        [SerializeField] private bool ownsCompany;
+                        [SerializeField] private House home;
+                        [SerializeField] private Utility[] utilities = new Utility[3];
+                        [SerializeField] private float income;
+                        [SerializeField] private float currentWealth;
+                        [SerializeField] private float fixedCharges;
+                        [SerializeField] private bool livesInCity;
+                    
+                        private AIBase aiBase;
+                    
+                        private const float incomeRandomizer = 100;
+                        private const float fixedChargesRandomizer = 100;
+                    
+                        private const float loanAmount = 80000;
+                        private const float loanRandomizer = 300;
+                        private const float interest = 1000;
+                        private const int ticksToPayBack = 100;
+                        private float moneyToPayBack;
+                        private float moneyToPayBackPerTick;
+                    
+                        private float taxesToPay;
+                    
+                        private GameManager gameManager;
+                    
+                        public enum Sex
+                        {
+                            Male,
+                            Female
+                        }
+                    
+                        public AIData()
+                        {
+                            gameManager = Object.FindObjectOfType<GameManager>();
+                        }
+                    
+                        public AIData(string name, int age, GameObject reference, AIBase aiBase) : this()
+                        {
+                            this.name = name;
+                            this.age = age;
+                            this.reference = reference;
+                            sex = GetRandomSex();
+                    
+                            //choose random available company
+                            work = gameManager.GetRandomFreeCompany();
+                            if (!work.GetPeopleInsideBuilding().Contains(this))
+                                work.AddPersonToBuilding(this);
+                    
+                            //choose random available house
+                            home = gameManager.GetRandomFreeHouse();
+                            if (!home.GetPeopleInsideBuilding().Contains(this))
+                                home.AddPersonToBuilding(this);
+                    
+                            //if it's the first person at a company, become the owner
+                            if (work.GetPeopleInsideBuilding().Count <= 1) ownsCompany = true;
+                    
+                            if (ownsCompany)
+                            {
+                                //Take out loan
+                                float finalLoanAmount = loanAmount + Random.Range(-loanRandomizer, loanRandomizer);
+                                currentWealth += finalLoanAmount;
+                    
+                                //calculate how much money to pack back and how much per tick
+                                moneyToPayBack = finalLoanAmount + (finalLoanAmount / interest);
+                                moneyToPayBackPerTick = moneyToPayBack / ticksToPayBack;
+                            }
+                            else
+                            {
+                                //generate income and taxes to pay
+                                income = work.GetAverageIncome() + Random.Range(-incomeRandomizer, incomeRandomizer);
+                                taxesToPay = (gameManager.GetTaxes() / 100) * income;
+                            }
+                    
+                            fixedCharges = Random.Range(0, fixedChargesRandomizer);
+                    
+                            //Try and get the reference
+                            if (reference.TryGetComponent(out AIBase referenceBase))
+                            {
+                                AIData refenceData = referenceBase.GetAIData();
+                                utilities = refenceData.utilities;
+                            }
+                            else
+                            {
+                                Debug.LogWarning("no AIBase found");
+                            }
+                    
+                            this.aiBase = aiBase;
+                        }
+                    
+                        public Sex GetRandomSex()
+                        {
+                            //Get random value from an enum
+                            System.Array sexArray = System.Enum.GetValues(typeof(Sex));
+                    
+                            int randomNum = Random.Range(0, sexArray.Length);
+                    
+                            Sex sex = (Sex)sexArray.GetValue(randomNum);
+                    
+                            return sex;
+                        }
+                    
+                        public void CalculateFinances()
+                        {
+                            if (!livesInCity) return;
+                    
+                            if (ownsCompany)
+                            {
+                                //pay back the taxes over the totalprofit of the company
+                                taxesToPay = (gameManager.GetTaxes() / 100) * work.GetTotalProfit();
+                    
+                                currentWealth += work.GetTotalProfit();
+                    
+                                work.ClearProfit();
+                    
+                                currentWealth -= taxesToPay;
+                                gameManager.ChangeMoney(taxesToPay);
+                    
+                                currentWealth -= work.GetTotalCosts();
+                                work.ClearCosts();
+                    
+                                //Pay back loan
+                                if (moneyToPayBack > 0)
+                                {
+                                    moneyToPayBack -= moneyToPayBackPerTick;
+                                    currentWealth -= moneyToPayBackPerTick;
+                                }
+                                else
+                                {
+                                    Debug.Log("Payed off loan");
+                                }
+                    
+                                //pay rent from company building
+                                currentWealth -= work.GetRent();
+                    
+                                foreach (var person in work.GetPeopleInsideBuilding())
+                                {
+                                    currentWealth -= person.income;
+                                }
+                            }
+                            else
+                            {
+                                currentWealth += income;
+                    
+                                currentWealth -= taxesToPay;
+                                gameManager.ChangeMoney(taxesToPay);
+                            }
+                    
+                            //pay rent from home
+                            currentWealth -= home.GetRent();
+                            //pay the calculated fixedcharges
+                            currentWealth -= fixedCharges;
+                    
+                            if (currentWealth < 0)
+                            {
+                                Debug.LogWarning(name + " ran out of money");
+                            }
+                        }
+                    
+                        #region Public Getters/Setters
+                    
+                        public GameObject GetReference() => reference;
+                    
+                        public Company GetWork() => work;
+                    
+                        public House GetHome() => home;
+                    
+                        public string GetName() => name;
+                    
+                        public int GetAge() => age;
+                    
+                        public Sex GetSex() => sex;
+                    
+                        public Utility[] GetUtilities() => utilities;
+                    
+                        public AIBase GetAIBase() => aiBase;
+                    
+                        public AIBase SetAIBase(AIBase value) => aiBase = value;
+                    
+                        public bool GetLivesInCity() => livesInCity;
+                    
+                        public void SetLivesInCity(bool value) => livesInCity = value;
+                    
+                        #endregion
+                    }
+                    
+                </code>
+            </pre>
+
+            <p>
+                Note: Couldn't remove &lt;/gamemanager&gt; code bececuase of the library I am using.
+            </p>
+        </div>
+        <div class="w-[80%] mx-auto bg-[#007ea7] rounded m-5 p-5">
+            <p class="text-center text-3xl">Company code</p><br/>
+            <pre>
+                <code data-language="csharp">
+                    using UnityEngine;
+
+                    public class Company : BuildingBase
+                    {
+                        [SerializeField] private Vector2[] workTimeRange = new Vector2[2]
+                        {
+                            new(9, 00),
+                            new(18, 00)
+                        };
+
+                        [SerializeField] private float averageIncome;
+                        [SerializeField] private int productsStorageCapacity = 10000;
+                        [SerializeField] private int materialStorageCapacity = 10000;
+                        [SerializeField] private float processTime = 0.15f;
+
+                        [SerializeField] private int productEmptyThreshold = 1000;
+                        [SerializeField] private int amountOfMaterialsToOrder = 500;
+                        [SerializeField] private int materialOrderThreshold = 500;
+
+                        [SerializeField] private int costOfMaterial = 300;
+                        [SerializeField] private int priceOfProduct = 800;
+
+                        private Vector2 workTime;
+
+                        private int materialsAmount;
+                        private int finishedProductsAmount;
+
+                        private GameManager gameManager;
+
+                        private bool isTruckEnRoute;
+
+                        private float timer;
+
+                        private float totalCostOfMaterial;
+                        private float totalProfit;
+
+                        private void Awake()
+                        {
+                            workTime = new(workTimeRange[0].x + (workTimeRange[0].y / 60), workTimeRange[1].x + (workTimeRange[1].y / 60));
+
+                            gameManager = FindObjectOfType<GameManager>();
+                        }
+
+                        protected override void Start()
+                        {
+                            base.Start();
+
+                            timer = processTime;
+                        }
+
+                        public void CheckLeaveForHome()
+                        {
+                            //Leave for home when work time is over
+                            int currentHour = UniStorm.UniStormSystem.Instance.Hour;
+
+                            if (currentHour <= GetWorkTime().x || currentHour >= GetWorkTime().y)
+                            {
+                                foreach (var people in peopleInBuilding)
+                                {
+                                    print("Send people home");
+                                    if (people.insideBuilding)
+                                        RemovePersonFromBuilding(people.data, people.data.GetHome());
+                                }
+                            }
+                        }
+
+                        private void Update()
+                        {
+                            //Process materials into products
+                            if (materialsAmount > 0 && finishedProductsAmount < productsStorageCapacity)
+                            {
+                                timer -= Time.deltaTime;
+
+                                if (timer <= 0)
+                                {
+                                    timer = processTime;
+                                    materialsAmount--;
+                                    finishedProductsAmount++;
+                                }
+                            }
+
+                            if (isTruckEnRoute) return;
+
+                            //Order new materials
+                            if (materialsAmount <= materialOrderThreshold)
+                            {
+                                totalCostOfMaterial += costOfMaterial * amountOfMaterialsToOrder;
+                                gameManager.SpawnTruck(this, amountOfMaterialsToOrder);
+                                isTruckEnRoute = true;
+                            }
+
+                            //Empty products
+                            if (finishedProductsAmount >= productEmptyThreshold)
+                            {
+                                gameManager.SpawnTruck(this, 0);
+                                isTruckEnRoute = true;
+                            }
+                        }
+
+                        #region Public Nonvalue-returning Functions
+
+                        public void DepositMaterial()
+                        {
+                            materialsAmount++;
+
+                            if (materialsAmount > materialStorageCapacity)
+                            {
+                                print("Material storage full");
+                                materialsAmount = materialStorageCapacity;
+                            }
+                        }
+
+                        public void TakeProduct()
+                        {
+                            totalProfit += priceOfProduct;
+                            finishedProductsAmount--;
+
+                            if (finishedProductsAmount < 0)
+                            {
+                                print("Product storage empty");
+                                materialsAmount = materialStorageCapacity;
+                            }
+                        }
+
+                        public void TruckDone()
+                        {
+                            isTruckEnRoute = false;
+                        }
+                        public void ClearProfit()
+                        {
+                            totalProfit = 0;
+                        }
+
+                        public void ClearCosts()
+                        {
+                            totalCostOfMaterial = 0;
+                        }
+
+                        #endregion
+
+                        #region Public Getters
+
+                        public Vector2 GetWorkTime() => workTime;
+
+                        public float GetAverageIncome() => averageIncome;
+
+                        public float GetTotalCosts() => totalCostOfMaterial;
+
+                        public float GetTotalProfit() => totalProfit;
+
+                        public float GetMaxProductStorage() => productsStorageCapacity;
+
+                        public float GetCurrentProductStorage() => finishedProductsAmount;
+
+                        public float GetMaxMaterialsStorage() => materialStorageCapacity;
+
+                        public float GetCurrentMaterialStorage() => materialsAmount;
+
+                        #endregion
+                    }
+
+                </code>
+            </pre>
+            <p>
+                Note: Couldn't remove &lt;/gamemanager&gt; code bececuase of the library I am using.
+            </p>
+        </div> 
+        <div class="w-[80%] mx-auto bg-[#007ea7] rounded m-5 p-5">
+            <p class="text-center text-3xl">AI Instance code</p><br/>
+            <pre>
+                <code data-language="csharp">
+                    using UnityEngine;
+                    using UnityEngine.AI;
+
+                    [SelectionBase]
+                    public class AIBase : MonoBehaviour
+                    {
+                        [SerializeField] private AIData data;
+                        [SerializeField] private float moveSpeed;
+                        [SerializeField] protected BuildingBase targetBuilding;
+                        [SerializeField] private Transform targetBuildingEntrance;
+                        [SerializeField] private float acceptDistance;
+                        [SerializeField] private float extraRotationSpeed;
+
+                        protected bool leavingCity;
+
+                        private GameManager gameManager;
+                        protected NavMeshAgent agent;
+
+                        private void Awake()
+                        {
+                            agent = GetComponent<NavMeshAgent>();
+                            agent.speed = moveSpeed;
+
+                            gameManager = FindObjectOfType<GameManager>();
+                        }
+
+                        public void Setup(BuildingBase targetBuilding, AIData data)
+                        {
+                            this.targetBuilding = targetBuilding;
+                            targetBuildingEntrance = targetBuilding.GetEntrance();
+                            this.data = data;
+                            data?.SetAIBase(this);
+
+                            //If the AI lives in the city and isnt already in the building, add it to the building,
+                            //but not in an entered state yet.
+                            if (data.GetLivesInCity())
+                            {
+                                if (!targetBuilding.GetPeopleInsideBuilding().Contains(data))
+                                {
+                                    targetBuilding.AddPersonToBuilding(data);
+                                }
+                            }
+                            
+                            //Go to the entrance of the target building
+                            agent.SetDestination(targetBuildingEntrance.position);
+                        }
+
+                        private void Update()
+                        {
+                            if (!targetBuilding) return;
+
+                            Vector3 lookrotation = agent.steeringTarget - transform.position;
+                            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookrotation), 
+                                extraRotationSpeed * Time.deltaTime);
+
+                            if (leavingCity)
+                            {
+                                //When leaving the city, destroy self when close to the city exit
+                                if (Vector3.Distance(transform.position, gameManager.transform.position) < acceptDistance)
+                                {
+                                    Destroy(gameObject);
+                                }
+                            }
+                            else
+                            {
+                                //When close to the targetbuilding, call OnArrive
+                                if (Vector3.Distance(transform.position, targetBuildingEntrance.transform.position) < acceptDistance)
+                                {
+                                    OnArrive();
+                                }
+                            }
+                        }
+
+                        protected virtual void OnArrive()
+                        {
+                            targetBuilding.OnPersonArrival(data);
+                            Destroy(gameObject);
+                        }
+
+                        protected void LeaveCity()
+                        {
+                            leavingCity = true;
+                            agent.destination = gameManager.transform.position;
+                        }
+
+                        public AIData GetAIData() => data;
+
+                        public BuildingBase GetTargetBuilding() => targetBuilding;
+                    }
+            </code>
+        </pre>
+        <p>
+            Note: Couldn't remove &lt;/gamemanager&gt; and &lt;/navmeshagent&gt; code bececuase of the library I am using.
+        </p>
+    </div>
+
+
+    <footer class="flex flex-col bg-gradient-to-b from-[#007ea7] to-[#00a8e8] text-center p-5 space-y-3 mt-5">
+        <div class="icons flex flex-col place-self-center sm:flex-row sm:space-x-10">
+            <a href="https://github.com/Doggy881" target="_blank"
+                class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95">
+                <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
+            </a>
+            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
+            <a href="https://github.com/Doggy881" target="_blank"
+                class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95">
+                <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
+            </a>
+            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
+            <a href="https://github.com/Doggy881" target="_blank"
+                class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95">
+                <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
+            </a>
+            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
+            <a href="https://github.com/Doggy881" target="_blank"
+                class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95">
+                <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
+            </a>
+        </div>
+        <div class="info">
+            <p>
+                Email:
+                <a class="select-all hover:text-white">janjaapbol93@gmail.com</a>
+            </p>
+            <p>Phone: <a class="select-all hover:text-white">0623840141</a></p>
+        </div>
+        <p class="select-all hover:text-white w-15 place-self-center">
+            Spheros Games
+        </p>
+    </footer>
+    <script src="node_modules/rainbow-code/dist/rainbow.js"></script>
+    <script src="node_modules/rainbow-code/src/language/csharp.js"></script>
+</body>
+</html>
