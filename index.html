@@ -9,26 +9,8 @@
     <script src="javascript.js"></script>
 </head>
 
-<body class="select-none bg-gradient-to-b from-[#003459] to-[#00a8e8]" onload="DeativateDropDown()">
-    <div class="z-50 navbar fixed top-0 place-self-center w-full opacity-50">
-        <header class="bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex justify-around text-center h-[2em]">
-            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="#">Jan-Jaap Bol</a>
-            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="index.html">Home</a>
-            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" onclick="ToggleDropDown()">Projects</a>
-            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="Contact.html">Contact</a>
-            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg" href="About.html">About</a>
-        </header>
-    
-        <div class="flex justify-center">
-            <div id="DropDown" class="-translate-y-60 transition-transform ease-in-out duration-150 absolute bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around">
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="AllProjects.html">All Projects</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="Pong.html">Pong</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="TankShot.html">Tank Shot</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="RacingGame.html">Racing Game</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="TowerDefenceGame.html">Tower Defence Game</a>
-            </div>
-        </div>
-    </div>
+<body class="bg-gradient-to-b from-[#003459] to-[#00a8e8]" onload="DeativateDropDown()">
+    <script defer type="text/javascript" src="Components/navbar.js"></script>
 
     <div class="main justify-center">
         <div class="relative hero flex justify-center my-10">
@@ -38,62 +20,53 @@
         </div>
 
         <div class="cards flex flex-col md:flex-row justify-between max-md:space-y-10 md:space-x-10 mb-5 mx-10">
-            <div class="card bg-[#00a8e8] rounded flex flex-col justify-center hover:shadow-2xl">
-                <div class="relative image flex flex-col">
-                    <img src="Img/PortfolioHero.png" class="rounded">
-                    <a href="CitySimulator.html" class="text-center self-center opacity-80 absolute bg-[#007ea7] bottom-[10%] place-self-center w-[5em] h-[1.5em] text-xs lg:text-xl font-medium text-gray-200 rounded
-                    transition-all ease-in-out duration-100 hover:scale-105 hover:text-gray-300 hover:bg-[#003459] active:scale-95 active:text-white">More Info</a>
-                </div>
-                <p class="text-center font-medium">City Simulator</p> <br>
-                <p class="text-center">A city simulator with AI that go to and from work. Full company simulation with transport!</p>
+            <div class="square-card" 
+                data-image-src="Img/PortfolioHero.png" 
+                data-link-href="CitySimulator.html" 
+                data-title="City Simulator" 
+                data-description="A city simulator with AI that go to and from work. Full company simulation with transport!">
             </div>
-            <div class="card bg-[#00a8e8] rounded flex flex-col justify-center hover:shadow-2xl">
-                <div class="relative image flex flex-col">
-                    <img src="Img/StellarRepairLogo.png" class="rounded w-[100em]">
-                    <a href="StellarRepair.html" class="text-center self-center opacity-80 absolute bg-[#007ea7] bottom-[10%] place-self-center w-[5em] h-[1.5em] text-xs lg:text-xl font-medium text-gray-200 rounded
-                    transition-all ease-in-out duration-100 hover:scale-105 hover:text-gray-300 hover:bg-[#003459] active:scale-95 active:text-white">More Info</a>
-                </div>
-                <p class="text-center font-medium">Stellar Repair</p> <br>
-                <p class="text-center">A gamejam game about repairing a spaceship</p>
+
+            <div class="square-card" 
+                data-image-src="Img/StellarRepairLogo.png" 
+                data-image-size="100"
+                data-link-href="StellarRepair.html" 
+                data-title="Stellar Repair" 
+                data-description="A gamejam game about repairing a spaceship">
             </div>
-            <div class="card bg-[#00a8e8] rounded flex flex-col justify-center hover:shadow-2xl">
-                <div class="relative image flex flex-col">
-                    <img src="Img/placeholder-image.png" class="rounded">
-                    <a href="RacingGame.html" class="text-center self-center opacity-80 absolute bg-[#007ea7] bottom-[10%] place-self-center w-[5em] h-[1.5em] text-xs lg:text-xl font-medium text-gray-200 rounded
-                    transition-all ease-in-out duration-100 hover:scale-105 hover:text-gray-300 hover:bg-[#003459] active:scale-95 active:text-white">More Info</a>
-                </div>
-                <p class="text-center font-medium">Race Game</p> <br>
-                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque lacus maximus, interdum
-                    sapien porta, suscipit nisl. Sed dapibus urna ut dui iaculis ornare.</p>
+
+            <div class="square-card" 
+                data-image-src="Img/placeholder-image.png" 
+                data-image-size="15"
+                data-link-href="" 
+                data-title="Placeholder" 
+                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque lacus maximus, interdum
+                sapien porta, suscipit nisl. Sed dapibus urna ut dui iaculis ornare. Nulla mattis mauris vel volutpat
+                cursus. Integer nec ornare lorem. Morbi justo elit, condimentum quis purus quis, vulputate volutpat
+                arcu. Nulla quis sodales mi. Nulla id massa in dolor blandit gravida. Etiam fermentum venenatis ipsum ut
+                commodo. Phasellus lacus sem, fringilla nec tempor nec, aliquet in turpis. Suspendisse potenti. Aliquam
+                non commodo ipsum. Aenean eget porttitor mi, sit amet venenatis diam. Donec nec nisl porta nisl
+                porttitor blandit tristique vitae mauris. Pellentesque aliquet tortor id metus varius finibus.">
             </div>
-            <div class="card bg-[#00a8e8] rounded flex flex-col justify-center hover:shadow-2xl">
-                <div class="relative image flex flex-col">
-                    <img src="Img/placeholder-image.png" class="rounded">
-                    <a href="TowerDefenceGame.html" class="text-center self-center opacity-80 absolute bg-[#007ea7] bottom-[10%] place-self-center w-[5em] h-[1.5em] text-xs lg:text-xl font-medium text-gray-200 rounded
-                    transition-all ease-in-out duration-100 hover:scale-105 hover:text-gray-300 hover:bg-[#003459] active:scale-95 active:text-white">More Info</a>
-                </div>
-                <p class="text-center font-medium">Tower Defence</p> <br>
-                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque lacus maximus, interdum
-                    sapien porta, suscipit nisl. Sed dapibus urna ut dui iaculis ornare.</p>
+
+            <div class="square-card" 
+                data-image-src="Img/placeholder-image.png" 
+                data-image-size="15"
+                data-link-href="" 
+                data-title="Placeholder" 
+                data-description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque lacus maximus, interdum
+                sapien porta, suscipit nisl. Sed dapibus urna ut dui iaculis ornare. Nulla mattis mauris vel volutpat
+                cursus. Integer nec ornare lorem. Morbi justo elit, condimentum quis purus quis, vulputate volutpat
+                arcu. Nulla quis sodales mi. Nulla id massa in dolor blandit gravida. Etiam fermentum venenatis ipsum ut
+                commodo. Phasellus lacus sem, fringilla nec tempor nec, aliquet in turpis. Suspendisse potenti. Aliquam
+                non commodo ipsum. Aenean eget porttitor mi, sit amet venenatis diam. Donec nec nisl porta nisl
+                porttitor blandit tristique vitae mauris. Pellentesque aliquet tortor id metus varius finibus.">
             </div>
         </div>
+
+        <script defer type="text/javascript" src="Components/squareCard.js"></script>
     </div>
 
-    <footer class="flex flex-col bg-gradient-to-b from-[#007ea7] to-[#00a8e8] text-center p-5 space-y-3">
-        <div class="icons flex flex-col place-self-center sm:flex-row sm:space-x-10">
-            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl  hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
-            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
-            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
-            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
-            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
-            <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
-            <a href="https://github.com/Doggy881" target="_blank" class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95"> <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12"> </a>
-        </div>
-        <div class="info">
-            <p>Email: <a class="select-all hover:text-white">janjaapbol93@gmail.com</a></p>
-            <p>Phone: <a class="select-all hover:text-white">0623840141</a></p>
-        </div>
-        <p class="select-all hover:text-white w-15 place-self-center">Spheros Games</p>
-    </footer>
+    <script defer type="text/javascript" src="Components/footer.js"></script>
 </body>
 </html>

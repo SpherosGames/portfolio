@@ -1,5 +1,5 @@
 
-function renderFooter() {
+function RenderFooter() {
     return `
         <footer class="flex flex-col bg-gradient-to-b from-[#007ea7] to-[#00a8e8] text-center p-5 space-y-3 mt-5">
             <div class="icons flex flex-col place-self-center sm:flex-row sm:space-x-10">
@@ -37,4 +37,4 @@ function renderFooter() {
     `;
 }
 
-document.body.innerHTML += renderFooter();
+document.body.innerHTML += RenderFooter();
