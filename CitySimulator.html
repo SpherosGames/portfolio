@@ -139,214 +139,201 @@
     <p class="w-fit rounded mx-auto p-5 text-3xl text-gray-300 mt-5 outline">Code Showcase</p><br/>
 
     <div>
-        <div class="w-[80%] mx-auto bg-[#007ea7] rounded m-5 p-5">
-            <div class="flex flex-row justify-around w-[50%] m-auto">
-                <p class="text-3xl">AIData code</p><br/>
-                <button class="rounded bg-[#00a8e8] p-5">Show</button>
-            </div>
-            <pre>
-                <code data-language="csharp">
-                    using UnityEngine;
+        <div class="code-showcase"
+            data-text = 'using UnityEngine;
 
-                    [System.Serializable]
-                    public class AIData
+            [System.Serializable]
+            public class AIData
+            {
+                [SerializeField] private string name;
+                [SerializeField] private int age;
+                [SerializeField] private Sex sex;
+                [SerializeField] private GameObject reference;
+                [SerializeField] private Company work;
+                [SerializeField] private bool ownsCompany;
+                [SerializeField] private House home;
+                [SerializeField] private Utility[] utilities = new Utility[3];
+                [SerializeField] private float income;
+                [SerializeField] private float currentWealth;
+                [SerializeField] private float fixedCharges;
+                [SerializeField] private bool livesInCity;
+            
+                private AIBase aiBase;
+            
+                private const float incomeRandomizer = 100;
+                private const float fixedChargesRandomizer = 100;
+            
+                private const float loanAmount = 80000;
+                private const float loanRandomizer = 300;
+                private const float interest = 1000;
+                private const int ticksToPayBack = 100;
+                private float moneyToPayBack;
+                private float moneyToPayBackPerTick;
+            
+                private float taxesToPay;
+            
+                private GameManager gameManager;
+            
+                public enum Sex
+                {
+                    Male,
+                    Female
+                }
+            
+                public AIData()
+                {
+                    gameManager = Object.FindObjectOfType<GameManager>();
+                }
+            
+                public AIData(string name, int age, GameObject reference, AIBase aiBase) : this()
+                {
+                    this.name = name;
+                    this.age = age;
+                    this.reference = reference;
+                    sex = GetRandomSex();
+            
+                    //choose random available company
+                    work = gameManager.GetRandomFreeCompany();
+                    if (!work.GetPeopleInsideBuilding().Contains(this))
+                        work.AddPersonToBuilding(this);
+            
+                    //choose random available house
+                    home = gameManager.GetRandomFreeHouse();
+                    if (!home.GetPeopleInsideBuilding().Contains(this))
+                        home.AddPersonToBuilding(this);
+            
+                    //if it&quot;s the first person at a company, become the owner
+                    if (work.GetPeopleInsideBuilding().Count <= 1) ownsCompany = true;
+            
+                    if (ownsCompany)
                     {
-                        [SerializeField] private string name;
-                        [SerializeField] private int age;
-                        [SerializeField] private Sex sex;
-                        [SerializeField] private GameObject reference;
-                        [SerializeField] private Company work;
-                        [SerializeField] private bool ownsCompany;
-                        [SerializeField] private House home;
-                        [SerializeField] private Utility[] utilities = new Utility[3];
-                        [SerializeField] private float income;
-                        [SerializeField] private float currentWealth;
-                        [SerializeField] private float fixedCharges;
-                        [SerializeField] private bool livesInCity;
-                    
-                        private AIBase aiBase;
-                    
-                        private const float incomeRandomizer = 100;
-                        private const float fixedChargesRandomizer = 100;
-                    
-                        private const float loanAmount = 80000;
-                        private const float loanRandomizer = 300;
-                        private const float interest = 1000;
-                        private const int ticksToPayBack = 100;
-                        private float moneyToPayBack;
-                        private float moneyToPayBackPerTick;
-                    
-                        private float taxesToPay;
-                    
-                        private GameManager gameManager;
-                    
-                        public enum Sex
-                        {
-                            Male,
-                            Female
-                        }
-                    
-                        public AIData()
-                        {
-                            gameManager = Object.FindObjectOfType<GameManager>();
-                        }
-                    
-                        public AIData(string name, int age, GameObject reference, AIBase aiBase) : this()
-                        {
-                            this.name = name;
-                            this.age = age;
-                            this.reference = reference;
-                            sex = GetRandomSex();
-                    
-                            //choose random available company
-                            work = gameManager.GetRandomFreeCompany();
-                            if (!work.GetPeopleInsideBuilding().Contains(this))
-                                work.AddPersonToBuilding(this);
-                    
-                            //choose random available house
-                            home = gameManager.GetRandomFreeHouse();
-                            if (!home.GetPeopleInsideBuilding().Contains(this))
-                                home.AddPersonToBuilding(this);
-                    
-                            //if it's the first person at a company, become the owner
-                            if (work.GetPeopleInsideBuilding().Count <= 1) ownsCompany = true;
-                    
-                            if (ownsCompany)
-                            {
-                                //Take out loan
-                                float finalLoanAmount = loanAmount + Random.Range(-loanRandomizer, loanRandomizer);
-                                currentWealth += finalLoanAmount;
-                    
-                                //calculate how much money to pack back and how much per tick
-                                moneyToPayBack = finalLoanAmount + (finalLoanAmount / interest);
-                                moneyToPayBackPerTick = moneyToPayBack / ticksToPayBack;
-                            }
-                            else
-                            {
-                                //generate income and taxes to pay
-                                income = work.GetAverageIncome() + Random.Range(-incomeRandomizer, incomeRandomizer);
-                                taxesToPay = (gameManager.GetTaxes() / 100) * income;
-                            }
-                    
-                            fixedCharges = Random.Range(0, fixedChargesRandomizer);
-                    
-                            //Try and get the reference
-                            if (reference.TryGetComponent(out AIBase referenceBase))
-                            {
-                                AIData refenceData = referenceBase.GetAIData();
-                                utilities = refenceData.utilities;
-                            }
-                            else
-                            {
-                                Debug.LogWarning("no AIBase found");
-                            }
-                    
-                            this.aiBase = aiBase;
-                        }
-                    
-                        public Sex GetRandomSex()
-                        {
-                            //Get random value from an enum
-                            System.Array sexArray = System.Enum.GetValues(typeof(Sex));
-                    
-                            int randomNum = Random.Range(0, sexArray.Length);
-                    
-                            Sex sex = (Sex)sexArray.GetValue(randomNum);
-                    
-                            return sex;
-                        }
-                    
-                        public void CalculateFinances()
-                        {
-                            if (!livesInCity) return;
-                    
-                            if (ownsCompany)
-                            {
-                                //pay back the taxes over the totalprofit of the company
-                                taxesToPay = (gameManager.GetTaxes() / 100) * work.GetTotalProfit();
-                    
-                                currentWealth += work.GetTotalProfit();
-                    
-                                work.ClearProfit();
-                    
-                                currentWealth -= taxesToPay;
-                                gameManager.ChangeMoney(taxesToPay);
-                    
-                                currentWealth -= work.GetTotalCosts();
-                                work.ClearCosts();
-                    
-                                //Pay back loan
-                                if (moneyToPayBack > 0)
-                                {
-                                    moneyToPayBack -= moneyToPayBackPerTick;
-                                    currentWealth -= moneyToPayBackPerTick;
-                                }
-                                else
-                                {
-                                    Debug.Log("Payed off loan");
-                                }
-                    
-                                //pay rent from company building
-                                currentWealth -= work.GetRent();
-                    
-                                foreach (var person in work.GetPeopleInsideBuilding())
-                                {
-                                    currentWealth -= person.income;
-                                }
-                            }
-                            else
-                            {
-                                currentWealth += income;
-                    
-                                currentWealth -= taxesToPay;
-                                gameManager.ChangeMoney(taxesToPay);
-                            }
-                    
-                            //pay rent from home
-                            currentWealth -= home.GetRent();
-                            //pay the calculated fixedcharges
-                            currentWealth -= fixedCharges;
-                    
-                            if (currentWealth < 0)
-                            {
-                                Debug.LogWarning(name + " ran out of money");
-                            }
-                        }
-                    
-                        #region Public Getters/Setters
-                    
-                        public GameObject GetReference() => reference;
-                    
-                        public Company GetWork() => work;
-                    
-                        public House GetHome() => home;
-                    
-                        public string GetName() => name;
-                    
-                        public int GetAge() => age;
-                    
-                        public Sex GetSex() => sex;
-                    
-                        public Utility[] GetUtilities() => utilities;
-                    
-                        public AIBase GetAIBase() => aiBase;
-                    
-                        public AIBase SetAIBase(AIBase value) => aiBase = value;
-                    
-                        public bool GetLivesInCity() => livesInCity;
-                    
-                        public void SetLivesInCity(bool value) => livesInCity = value;
-                    
-                        #endregion
+                        //Take out loan
+                        float finalLoanAmount = loanAmount + Random.Range(-loanRandomizer, loanRandomizer);
+                        currentWealth += finalLoanAmount;
+            
+                        //calculate how much money to pack back and how much per tick
+                        moneyToPayBack = finalLoanAmount + (finalLoanAmount / interest);
+                        moneyToPayBackPerTick = moneyToPayBack / ticksToPayBack;
                     }
-                    
-                </code>
-            </pre>
-
-            <p>
-                Note: Couldn't remove &lt;/gamemanager&gt; code bececuase of the library I am using.
-            </p>
+                    else
+                    {
+                        //generate income and taxes to pay
+                        income = work.GetAverageIncome() + Random.Range(-incomeRandomizer, incomeRandomizer);
+                        taxesToPay = (gameManager.GetTaxes() / 100) * income;
+                    }
+            
+                    fixedCharges = Random.Range(0, fixedChargesRandomizer);
+            
+                    //Try and get the reference
+                    if (reference.TryGetComponent(out AIBase referenceBase))
+                    {
+                        AIData refenceData = referenceBase.GetAIData();
+                        utilities = refenceData.utilities;
+                    }
+                    else
+                    {
+                        Debug.LogWarning("no AIBase found");
+                    }
+            
+                    this.aiBase = aiBase;
+                }
+            
+                public Sex GetRandomSex()
+                {
+                    //Get random value from an enum
+                    System.Array sexArray = System.Enum.GetValues(typeof(Sex));
+            
+                    int randomNum = Random.Range(0, sexArray.Length);
+            
+                    Sex sex = (Sex)sexArray.GetValue(randomNum);
+            
+                    return sex;
+                }
+            
+                public void CalculateFinances()
+                {
+                    if (!livesInCity) return;
+            
+                    if (ownsCompany)
+                    {
+                        //pay back the taxes over the totalprofit of the company
+                        taxesToPay = (gameManager.GetTaxes() / 100) * work.GetTotalProfit();
+            
+                        currentWealth += work.GetTotalProfit();
+            
+                        work.ClearProfit();
+            
+                        currentWealth -= taxesToPay;
+                        gameManager.ChangeMoney(taxesToPay);
+            
+                        currentWealth -= work.GetTotalCosts();
+                        work.ClearCosts();
+            
+                        //Pay back loan
+                        if (moneyToPayBack > 0)
+                        {
+                            moneyToPayBack -= moneyToPayBackPerTick;
+                            currentWealth -= moneyToPayBackPerTick;
+                        }
+                        else
+                        {
+                            Debug.Log("Payed off loan");
+                        }
+            
+                        //pay rent from company building
+                        currentWealth -= work.GetRent();
+            
+                        foreach (var person in work.GetPeopleInsideBuilding())
+                        {
+                            currentWealth -= person.income;
+                        }
+                    }
+                    else
+                    {
+                        currentWealth += income;
+            
+                        currentWealth -= taxesToPay;
+                        gameManager.ChangeMoney(taxesToPay);
+                    }
+            
+                    //pay rent from home
+                    currentWealth -= home.GetRent();
+                    //pay the calculated fixedcharges
+                    currentWealth -= fixedCharges;
+            
+                    if (currentWealth < 0)
+                    {
+                        Debug.LogWarning(name + " ran out of money");
+                    }
+                }
+            
+                #region Public Getters/Setters
+            
+                public GameObject GetReference() => reference;
+            
+                public Company GetWork() => work;
+            
+                public House GetHome() => home;
+            
+                public string GetName() => name;
+            
+                public int GetAge() => age;
+            
+                public Sex GetSex() => sex;
+            
+                public Utility[] GetUtilities() => utilities;
+            
+                public AIBase GetAIBase() => aiBase;
+            
+                public AIBase SetAIBase(AIBase value) => aiBase = value;
+            
+                public bool GetLivesInCity() => livesInCity;
+            
+                public void SetLivesInCity(bool value) => livesInCity = value;
+            
+                #endregion'>
         </div>
+
         <div class="w-[80%] mx-auto bg-[#007ea7] rounded m-5 p-5">
             <p class="text-center text-3xl">Company code</p><br/>
             <pre>
@@ -614,9 +601,11 @@
             </code>
         </pre>
         <p>
-            Note: Couldn't remove &lt;/gamemanager&gt; and &lt;/navmeshagent&gt; code bececuase of the library I am using.
+            Note: Couldn't remove &lt;/gamemanager&gt; and &lt;/navmeshagent&gt; code because of the library I am using.
         </p>
     </div>
+
+    <script defer type="text/javascript" src="Components/squareCard.js"></script>
 
     <script defer type="text/javascript" src="Components/footer.js"></script>
 </body>

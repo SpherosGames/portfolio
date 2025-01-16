@@ -1,40 +1,30 @@
 
-function renderCode() {
+function renderCode(text) {
     return `
-        <footer class="flex flex-col bg-gradient-to-b from-[#007ea7] to-[#00a8e8] text-center p-5 space-y-3 mt-5">
-            <div class="icons flex flex-col place-self-center sm:flex-row sm:space-x-10">
-                <a href="https://github.com/Doggy881" target="_blank"
-                    class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95">
-                    <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
-                </a>
-                <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
-                <a href="https://github.com/Doggy881" target="_blank"
-                    class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95">
-                    <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
-                </a>
-                <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
-                <a href="https://github.com/Doggy881" target="_blank"
-                    class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95">
-                    <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
-                </a>
-                <p class="opacity-0 sm:opacity-100 text-1xl sm:text-5xl">/</p>
-                <a href="https://github.com/Doggy881" target="_blank"
-                    class="transition-all ease-in-out duration-100 hover:drop-shadow-2xl hover:scale-105 active:scale-95">
-                    <img src="Img/Icons/Github-Icon.png" alt="Github Icon" class="w-12" />
-                </a>
+        <div class="w-[80%] mx-auto bg-[#007ea7] rounded m-5 p-5">
+            <div class="flex flex-row justify-around w-[50%] m-auto">
+                <p class="text-3xl">AIData code</p><br/>
+                <button class="rounded bg-[#00a8e8] p-5">Show</button>
             </div>
-            <div class="info">
-                <p>
-                    Email:
-                    <a class="select-all hover:text-white">janjaapbol93@gmail.com</a>
-                </p>
-                <p>Phone: <a class="select-all hover:text-white">0623840141</a></p>
-            </div>
-            <p class="select-all hover:text-white w-15 place-self-center">
-                Spheros Games
+            <pre>
+                <code data-language="csharp">${text}</code>
+            </pre>
+
+            <p>
+                Note: Couldn't remove &lt;/gamemanager&gt; code bececuase of the library I am using.
             </p>
-        </footer>
+        </div>
     `;
 }
 
-document.body.innerHTML += renderFooter();
+// Function to render the card based on data attributes from an HTML element
+function renderCardFromElement(element) {
+    const text = element.dataset.text;
+
+    element.innerHTML = renderCode(text);
+}
+
+// Automatically render all elements with the class "square-card"
+document.querySelectorAll('.code-showcase').forEach(element => {
+    renderCardFromElement(element);
+});
