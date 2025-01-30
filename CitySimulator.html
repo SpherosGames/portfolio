@@ -54,87 +54,63 @@
             <source src="Img/CitySimulator/City Simulator Demo.mp4" type="video/mp4" />
         </video>
 
-        <div
-            class="flex flex-col col-span-auto sm:flex-row justify-between mt-5 p-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[80%] rounded-none lg:rounded-r items-center place-self-start">
-            <div class="w-[50%] place-self-center">
-                <p class="text-center text-3xl">AI system</p><br/>
-                <p class="text-center md:text-left">
-                    All cars are split into 2 parts. The data and the instance. The data
-                    are things like its name and age. This persists throughout the game.
-                    Whenever an ai enters a building its instance is destroyed, but the
-                    data is saved inside building. Every AI saves its spot in a building.
-                    This avoids that 2 ai's choose the same building to live in.
-                    <br/>
-                </p>
-            </div>
-            <div class="w-[50%] place-self-center">
-                <img class="rounded p-5 w-[70%] mx-auto" src="Img/CitySimulator/CitySimulatorAIInfo.png">
-                <p class="text-s text-gray-800 text-center">All the data that is saved when an AI occupies a building</p>
-            </div>
+        <div class="horizontal-card"
+            data-title="AI System"
+            data-description="All cars are split into 2 parts. The data and the instance. The data
+            are things like its name and age. This persists throughout the game.
+            Whenever an ai enters a building its instance is destroyed, but the
+            data is saved inside building. Every AI saves its spot in a building.
+            This avoids that 2 ai's choose the same building to live in."
+            data-image-src="Img/CitySimulator/CitySimulatorAIInfo.png"
+            data-image-description="All the data that is saved when an AI occupies a building."
+            data-place-self="start"
+            >
         </div>
 
-        <div
-            class="flex flex-col col-span-auto sm:flex-row justify-between mt-5 p-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[80%] rounded-none lg:rounded-l items-center place-self-end">
-            <div class="w-[50%] place-self-center">
-                <p class="text-center text-3xl">Company system</p><br/>
-                <p class="text-center md:text-left">
-                    The white vans that you see in the video are for the company. The
-                    player can select the van to see their current cargo amount and what
-                    they are going to do. They can either: pickup products or deliver
-                    materials. Either way, they will spawn when necessary. They will go to
-                    the designated company and execute their action. The owner is the
-                    first ai to work at the company. It takes out a loan and immediately
-                    orders some materials. The company then slowly converts the materials
-                    into usable products. When there are enough products, they get sold.
-                    The owner gets all the profits, but also needs to pay tax. The tax
-                    goes to the player. The owner must pay of their loan, pay their
-                    employees and rent. Employees also must pay their rent and pay taxes.
-                    <br/>
-                </p>
-            </div>
-            <div class="w-[50%] place-self-center">
-                <img class="rounded p-5 w-[70%] mx-auto" src="Img/CitySimulator/CitySimulatorCompany.png">
-                <p class="text-s text-gray-800 text-center">A van that drops off its cargo into a company</p>
-            </div>
+        <div class="horizontal-card"
+            data-title="Company system"
+            data-description="The white vans that you see in the video are for the company. The
+            player can select the van to see their current cargo amount and what
+            they are going to do. They can either: pickup products or deliver
+            materials. Either way, they will spawn when necessary. They will go to
+            the designated company and execute their action. The owner is the
+            first ai to work at the company. It takes out a loan and immediately
+            orders some materials. The company then slowly converts the materials
+            into usable products. When there are enough products, they get sold.
+            The owner gets all the profits, but also needs to pay tax. The tax
+            goes to the player. The owner must pay of their loan, pay their
+            employees and rent. Employees also must pay their rent and pay taxes."
+            data-image-src="Img/CitySimulator/CitySimulatorCompany.png"
+            data-image-description="A van that drops off its cargo into a company."
+            data-place-self="end"
+            >
         </div>
 
-    <div
-        class="flex flex-col col-span-auto sm:flex-row justify-between mt-5 p-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[80%] rounded-none lg:rounded-r items-center place-self-start">
-        <div class="w-[50%] place-self-center">
-            <p class="text-center text-3xl">Utilities</p><br/>
-            <p class="text-center md:text-left">
-                Some buildings need utility to function. To fulfil that
-                need, you must place down utility buildings. The buildings cost money
-                to place down and maintain.
-                <br/>
-            </p>
+        <div class="horizontal-card"
+            data-title="Utilities"
+            data-description="Some buildings need utility to function. To fulfil that
+            need, you must place down utility buildings. The buildings cost money
+            to place down and maintain."
+            data-image-src="Img/CitySimulator/CitySimulatorUtility.png"
+            data-image-description="All utility needs are displayed above the building. The color indicates the severity."
+            data-place-self="start"
+            >
         </div>
-        <div class="w-[50%] place-self-center">
-            <img class="rounded p-5 w-[70%] mx-auto" src="Img/CitySimulator/CitySimulatorUtility.png">
-            <p class="text-s text-gray-800 text-center">All utility needs are displayed above the building. The color indicates the severity.</p>
-        </div>
-    </div>
 
-    <div
-        class="flex flex-col col-span-auto sm:flex-row justify-between mt-5 p-5 align-middle bg-gradient-to-l from-[#007ea7] to-[#00a8e8] w-full lg:w-[80%] rounded-none lg:rounded-l items-center place-self-end">
-        <div class="w-[50%] place-self-center">
-            <p class="text-center text-3xl">UI</p><br/>
-            <p class="text-center md:text-left">
-                Because this is a management game, it needs solid UI. I have made a simple taxes slider. This doesn’t
-                have any impact on happiness, as there is no system for that yet. In the income panel you can see the
-                total expenses and income. There is a bottom bar. In there you can change the name of the city, the
-                current temperature, current balance and the amount of people that live in your city. Above that you can
-                see a button for each of the placeable buildings. When you click on any vehicle you can see some
-                information about it. For a car, you can see the passengers age, name and more. For a van, you can see
-                its current cargo and what its going to do.
-                <br/>
-            </p>
+        <div class="horizontal-card"
+            data-title="UI"
+            data-description="Because this is a management game, it needs solid UI. I have made a simple taxes slider. This doesn’t
+            have any impact on happiness, as there is no system for that yet. In the income panel you can see the
+            total expenses and income. There is a bottom bar. In there you can change the name of the city, the
+            current temperature, current balance and the amount of people that live in your city. Above that you can
+            see a button for each of the placeable buildings. When you click on any vehicle you can see some
+            information about it. For a car, you can see the passengers age, name and more. For a van, you can see
+            its current cargo and what its going to do."
+            data-image-src="Img/CitySimulator/CitySimulatorUI.png"
+            data-image-description="An overview of all the UI."
+            data-place-self="end"
+            >
         </div>
-        <div class="w-[50%] place-self-center">
-            <img class="rounded p-5 w-[70%] mx-auto" src="Img/CitySimulator/CitySimulatorUI.png">
-            <p class="text-s text-gray-800 text-center">An overview of all the UI</p>
-        </div>
-    </div>
 
     <p class="w-fit rounded mx-auto p-5 text-3xl text-gray-300 mt-5 outline">Code Showcase</p><br/>
 
@@ -597,6 +573,8 @@
                         public BuildingBase GetTargetBuilding() => targetBuilding;
                     }'>
     </div>
+
+    <script defer type="text/javascript" src="Components/HorizontalCard.js"></script>
 
     <script defer type="text/javascript" src="Components/CodeShowcase.js"></script>
 
