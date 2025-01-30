@@ -140,7 +140,10 @@
 
     <div>
         <div class="code-showcase"
-            data-text = 'using UnityEngine;
+            data-title = "AIData Code"
+            data-warning = "Note: Couldn't remove &lt;/gamemanager&gt; code bececuase of the library I am using."
+            data-text = '
+            using UnityEngine;
 
             [System.Serializable]
             public class AIData
@@ -334,10 +337,11 @@
                 #endregion'>
         </div>
 
-        <div class="w-[80%] mx-auto bg-[#007ea7] rounded m-5 p-5">
-            <p class="text-center text-3xl">Company code</p><br/>
-            <pre>
-                <code data-language="csharp">
+        <div>
+            <div class="code-showcase"
+                data-title="Company Code"
+                data-warning="Note: Couldn't remove &lt;/gamemanager&gt; code bececuase of the library I am using."
+                data-text = '
                     using UnityEngine;
 
                     public class Company : BuildingBase
@@ -497,18 +501,12 @@
                         public float GetCurrentMaterialStorage() => materialsAmount;
 
                         #endregion
-                    }
-
-                </code>
-            </pre>
-            <p>
-                Note: Couldn't remove &lt;/gamemanager&gt; code bececuase of the library I am using.
-            </p>
+                    } '>
         </div> 
-        <div class="w-[80%] mx-auto bg-[#007ea7] rounded m-5 p-5">
-            <p class="text-center text-3xl">AI Instance code</p><br/>
-            <pre>
-                <code data-language="csharp">
+        <div class="code-showcase"
+            data-title = "AI Navigation Code"
+            data-warning = "Note: Couldn't remove &lt;/gamemanager&gt; and &lt;/navmeshagent&gt; code because of the library I am using."
+            data-text = '
                     using UnityEngine;
                     using UnityEngine.AI;
 
@@ -597,13 +595,10 @@
                         public AIData GetAIData() => data;
 
                         public BuildingBase GetTargetBuilding() => targetBuilding;
-                    }
-            </code>
-        </pre>
-        <p>
-            Note: Couldn't remove &lt;/gamemanager&gt; and &lt;/navmeshagent&gt; code because of the library I am using.
-        </p>
+                    }'>
     </div>
+
+    <script defer type="text/javascript" src="Components/CodeShowcase.js"></script>
 
     <script defer type="text/javascript" src="Components/squareCard.js"></script>
 
