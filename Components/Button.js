@@ -1,17 +1,22 @@
-function RenderButton(linkHref, text) {
+function RenderButton(linkHref, text, width, height) {
     return `
-        <a href="${linkHref}" class="text-center self-center opacity-80 absolute bg-[#007ea7] bottom-[10%] place-self-center w-[5em] h-[1.5em] text-xs lg:text-xl font-medium text-gray-200 rounded
+       <a href="${linkHref}" class="mx-[40%] text-center opacity-80 absolute bg-[#007ea7] bottom-[10%] w-[${width}em] h-[${height}em] text-xs lg:text-xl font-medium text-gray-200 rounded
                 transition-all ease-in-out duration-100 hover:scale-105 hover:text-gray-300 hover:bg-[#003459] active:scale-95 active:text-white">${text}</a> 
     `;
 }
 
-function renderCardFromElement(element) {
+function renderCardFromElementButton(element) {
     const linkHref = element.dataset.linkHref;
     const text = element.dataset.text;
+    const width = element.dataset.width;
+    const height = element.dataset.height;
 
-    element.innerHTML = RenderButton(linkHref, text);
+    console.log(height);
+    console.log(width);
+
+    element.innerHTML = RenderButton(linkHref, text, width, height);
 }
 
 document.querySelectorAll('.button').forEach(element => {
-    renderCardFromElement(element);
+    renderCardFromElementButton(element);
 });
