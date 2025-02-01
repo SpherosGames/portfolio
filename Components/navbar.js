@@ -12,11 +12,10 @@ function RenderNavBar() {
     
         <div class="flex justify-center">
             <div id="DropDown" class="-translate-y-60 transition-transform ease-in-out duration-150 absolute bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around">
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="AllProjects.html">All Projects</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="Pong.html">Pong</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="TankShot.html">Tank Shot</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="RacingGame.html">Racing Game</a>
-                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="TowerDefenceGame.html">Tower Defence Game</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="CitySimulator.html">City Simulator</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="StellarRepair.html">Stellar Repair</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="SpiderSolitaire.html">Spider Solitaire</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center" href="SpaceShipShooter.html">Space Ship Shooter</a>
             </div>
         </div>
     </div>
