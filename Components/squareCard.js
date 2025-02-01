@@ -30,7 +30,7 @@ function renderCardFromElement(element) {
     // "<script defer type="text/javascript" src="Components/Button.js"></script>"
     document.querySelectorAll('.button').forEach(element => {
         renderCardFromElementButton(element);
-    });    
+    });
 }
 
 // Automatically render all elements with the class "square-card"
