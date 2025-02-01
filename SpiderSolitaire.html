@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="javascript.js"></script>
+    <link href="node_modules/rainbow-code/themes/css/tomorrow-night.css" rel="stylesheet" type="text/css" media="screen">
+    <script src="node_modules/rainbow-code/dist/rainbow.js"></script>
+    <script src="node_modules/rainbow-code/src/language/csharp.js"></script>
+</head>
+
+<body class="bg-gradient-to-b from-[#003459] to-[#00a8e8]" onload="DeativateDropDown()">
+    <div class="z-50 navbar fixed top-0 place-self-center w-full opacity-50">
+        <header class="bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex justify-around text-center h-[2em]">
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+                href="#">Jan-Jaap Bol</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+                href="index.html">Home</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+                onclick="ToggleDropDown()">Projects</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+                href="Contact.html">Contact</a>
+            <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg"
+                href="About.html">About</a>
+        </header>
+
+        <div class="flex justify-center">
+            <div id="DropDown"
+                class="-translate-y-60 transition-transform ease-in-out duration-150 absolute bg-gradient-to-b from-[#007ea7] to-[#00a8e8] flex flex-col w-[30em] rounded-b justify-around">
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+                    href="AllProjects.html">All Projects</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+                    href="Pong.html">Pong</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+                    href="TankShot.html">Tank Shot</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+                    href="RacingGame.html">Racing Game</a>
+                <a class="transition-all duration-100 ease-in-out hover:text-gray-300 active:text-white text-ms hover:scale-110 active:scale-95 lg:text-lg text-center"
+                    href="TowerDefenceGame.html">Tower Defence Game</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main flex flex-col">
+        <p class="text-center text-white text-7xl lg:text-9xl my-10 font-bold tracking-wide">
+            Spider Solitaire
+        </p>
+
+        <video autoplay controls class="w-[50%] place-self-center">
+            <source src="Img/Videos/SolitaireDemo.mp4" type="video/mp4" />
+        </video>
+
+        <div class="horizontal-card"
+            data-title="Project Description"
+            data-description="Classic spider solitaire game made in Unity with a coop mode.
+            Down below I will talk more about specific features and things I want to highlight about the project.
+            This project was made in 16 days during school, so not all the code is finished.
+            That’s why you’ll see TODO comments in the code, these are parts of the code that needs improving or optimizing.
+            In the future I will improve the code and update this section of the website."
+            data-image-src="Img/SollitaireSpiderHero.png"
+            data-image-description="Screenshot of the game."
+            data-place-self="start"
+            >
+        </div>
+
+        <div class="horizontal-card"
+            data-title="Main Menu Card Spawner"
+            data-description="Before you even begin to the play the game, you encounter a cool feature: random cards in the background of the main menu.
+            It spawns the cards randomly using “Random.insideUnitCircle”.
+            This way it spawns it more naturally, having more cards in the middle then around the edge of the screen. "
+            data-image-src="Img/SolitaireMainMenuCardSpawnerDemo.gif"
+            data-image-description="The spawned cards, seen in the background of the main menu. "
+            data-place-self="end"
+            >
+        </div>
+
+        <div class="horizontal-card"
+            data-title="Card Spawner"
+            data-description="I looked the rules of spider solitaire up online and came up with an algorithm for spawning the cards via that.
+            It first makes a list of all the cards by generating 8 sequences of the 13 playing cards totalling the 104 cards needed to play the game.
+            It first places 6 cards on the first 4 piles. Then, it places 5 cards to the last 6 piles. The left-over cards get put on the stockpile.
+            Making this algorithm was really fun, but also the part that took the longest in development."
+            data-image-src="Img/SolitaireCardSpawningDemo.gif"
+            data-image-description="The cards spawning with a small delay between each placement."
+            data-place-self="start"
+            >
+        </div>
+
+        <div class="horizontal-card"
+            data-title="Card Interaction Manager"
+            data-description="Making the card move and be placed correctly also took a lot of time to get right, but in the final game it feels just right!
+            It works by shooting a ray at the mouse position to check if it hit a card. Then it checks if there are any more cards attached to this one.
+            Then when moving the card, it will also move all the cards that should move with it and keep their offset.
+            It also keeps the z offset correct, meaning if a card is on top of another, it should visually be as well. Getting this right took a lot of time.
+            To make this system simpler, I have made a card script that each card has.
+            This handles behaviour like attaching a card to this card."
+            data-image-src="Img/SollitaireSpiderHero.png"
+            data-image-description="Screenshot of the game."
+            data-place-self="end"
+            >
+        </div>
+
+    <p class="w-fit rounded mx-auto p-5 text-3xl text-gray-300 mt-5 outline">Code Showcase</p><br/>
+
+    <div>
+        <div class="code-showcase"
+            data-title = "Main Menu Card Spawner"
+            data-warning = "Note: Couldn't remove /card code because of the library I am using."
+            data-text = '
+            using System.Collections;
+            using System.Collections.Generic;
+            using UnityEngine;
+
+            public class MainMenuCardSpawner : MonoBehaviour
+            {
+                [SerializeField] private float amountToSpawn;
+                [SerializeField] private Card cardToSpawn;
+
+                private void OnEnable()
+                {
+                    for (int i = 0; i < amountToSpawn; i++)
+                    {
+                        Vector2 pos = Random.insideUnitCircle * Random.Range(2, 15);
+
+                        Vector3 rot = new(0, 0, Random.Range(0, 360));
+
+                        Card card = Instantiate(cardToSpawn.gameObject, pos, Quaternion.Euler(rot)).GetComponent<Card>();
+                        card.CardType = (CardTypes)Random.Range(0, System.Enum.GetValues(typeof(CardTypes)).Length - 1);
+                        card.UpdateLook();
+                    }
+                }
+            }
+            '>
+        </div>
+
+        <div>
+            <div class="code-showcase"
+                data-title="Card Spawner"
+                data-warning="Note: Couldn't remove /card and /cardTypes code because of the library I am using."
+                data-text = '
+                using System.Collections.Generic;
+                using System.Linq;
+                using UnityEngine;
+                using UnityEngine.SceneManagement;
+                
+                public class CardSpawner : MonoBehaviour
+                {
+                    [SerializeField] private GameObject cardPrefab;
+                    [SerializeField] private GameObject[] EmptySpots;
+                    [SerializeField] private GameObject stockPileSpot;
+                    [SerializeField] private int amountOfCardsToSpawn = 104;
+                    [SerializeField] private Transform cardParent;
+                    [SerializeField] private bool spawnCards;
+                    [SerializeField] private int amountOfTimesToSpawn = 1;
+                    [SerializeField] private CoopManager coopManager;
+                    [SerializeField] private string winSceneName;
+                    [SerializeField] private bool isSinglePlayer;
+                
+                    private List<Card> spawnedCards = new();
+                
+                    private CardTypes[] cards;
+                    private CardTypes[] stockPile;
+                    private CardTypes[] stockPile2;
+                    private int stockPileIndex;
+                    private int stockPileIndex2;
+                
+                    private void OnEnable()
+                    {
+                        if (spawnCards)
+                        {
+                            GenerateDecks();
+                
+                            SpawnCards();
+                        }
+                        
+                    }
+                
+                    private void Update()
+                    {
+                        if (spawnedCards.Count <= 0)
+                        {
+                            print("Won!");
+                            SceneManager.LoadScene(winSceneName);
+                        }
+                    }
+                
+                    public void RemoveCard(Card card)
+                    {
+                        spawnedCards.Remove(card);
+                    }
+                
+                    private void GenerateDecks()
+                    {
+                        cards = GenerateCardSequence();
+                    }
+                
+                    private CardTypes[] RandomizeCards(CardTypes[] cardTypes)
+                    {
+                        for (int t = 0; t < cardTypes.Length; t++)
+                        {
+                            CardTypes tmp = cardTypes[t];
+                            int r = Random.Range(t, cardTypes.Length);
+                            cardTypes[t] = cardTypes[r];
+                            cardTypes[r] = tmp;
+                        }
+                
+                        return cardTypes;
+                    }
+                
+                    private CardTypes[] GenerateCardSequence()
+                    {
+                        List<CardTypes> cards = new();
+                
+                        for (int i = 0; i < amountOfCardsToSpawn / 13; i++)
+                        {
+                            CardTypes[] sequence = new CardTypes[13]
+                            {
+                                CardTypes.Ace,
+                                CardTypes.Two,
+                                CardTypes.Three,
+                                CardTypes.Four,
+                                CardTypes.Five,
+                                CardTypes.Six,
+                                CardTypes.Seven,
+                                CardTypes.Eight,
+                                CardTypes.Nine,
+                                CardTypes.Ten,
+                                CardTypes.Jack,
+                                CardTypes.Queen,
+                                CardTypes.King,
+                            };
+                
+                            cards.AddRange(sequence);
+                        }
+                
+                        //TODO: Optimize this by not switching between array and list so often
+                        cards = RandomizeCards(cards.ToArray()).ToList();
+                
+                        return cards.ToArray();
+                    }
+                
+                    private void SpawnCards()
+                    {
+                        List<CardTypes> tempCards = cards.ToList();
+                
+                        int deckCardIndex = 0;
+                
+                        //1 for singleplayer 2 for coop
+                        for (int i = 0; i < amountOfTimesToSpawn; i++)
+                        {
+                            int offset = i * 10;
+                
+                            //Deal 6 cards to the first 4 piles
+                            for (int emptySpotIndex = offset; emptySpotIndex < offset + 4; emptySpotIndex++)
+                            {
+                                for (int cardIndex = 0; cardIndex < 6; cardIndex++)
+                                {
+                                    bool locked = true;
+                
+                                    //Last card should spawn unlocked
+                                    if (cardIndex == 5) locked = false;
+                
+                                    SpawnCard(deckCardIndex, emptySpotIndex, tempCards, cards, locked);
+                                    deckCardIndex++;
+                                }
+                            }
+                
+                            //Deal 5 cards to the last 6 piles
+                            for (int emptySpotIndex = offset + 4; emptySpotIndex < offset + 10; emptySpotIndex++)
+                            {
+                                for (int cardIndex = 0; cardIndex < 5; cardIndex++)
+                                {
+                                    bool locked = true;
+                
+                                    //Last card should spawn unlocked
+                                    if (cardIndex == 4) locked = false;
+                
+                                    SpawnCard(deckCardIndex, emptySpotIndex, tempCards, cards, locked);
+                                    deckCardIndex++;
+                                }
+                            }
+                        }
+                
+                        //TODO: Optimize this by removing tempcards
+                        cards = tempCards.ToArray();
+                
+                        stockPile = cards.Take(cards.Length / 2).ToArray();
+                        stockPile2 = cards.Skip(cards.Length / 2).ToArray();
+                    }
+                
+                    public void SimpleCardSpawn(int emptySpotIndex, CardTypes cardType, bool isLocked)
+                    {
+                        Card card = Instantiate(cardPrefab, cardParent).GetComponent<Card>();
+                        spawnedCards.Add(card);
+                        card.CardType = cardType;
+                        card.isLocked = isLocked;
+                        card.Setup(this, coopManager);
+                        EmptySpots[emptySpotIndex].GetComponent<Card>().AttachCardToMe(card, false);
+                    }
+                
+                    public void SpawnCard(int deckCardIndex, int emptySpotIndex, List<CardTypes> tempCards, CardTypes[] cards, bool locked)
+                    {
+                        Card card = Instantiate(cardPrefab, cardParent).GetComponent<Card>();
+                        spawnedCards.Add(card);
+                        card.CardType = cards[deckCardIndex];
+                        card.isLocked = locked;
+                        if (tempCards != null) tempCards.Remove(card.CardType);
+                        card.Setup(this, coopManager);
+                        EmptySpots[emptySpotIndex].GetComponent<Card>().AttachCardToMe(card, false);
+                    }
+                    
+                    public void SpawnStockPileCards(bool isFirst)
+                    {
+                        //TODO: Support more than 2 players (extra)
+                        int index = isFirst ? stockPileIndex : stockPileIndex2;
+                
+                        int emptySpotStartingIndex = isSinglePlayer ? 0 : isFirst ? 0 : EmptySpots.Length / 2;
+                        int emptySpotEndIndex = isSinglePlayer ? EmptySpots.Length : isFirst ? EmptySpots.Length / 2 : EmptySpots.Length;
+                
+                        if (index >= stockPile.Length) return;
+                        
+                        for (int i = emptySpotStartingIndex; i < emptySpotEndIndex; i++)
+                        {
+                            SpawnCard(isFirst ? stockPileIndex : stockPileIndex2, i, null, stockPile, false);
+                
+                            if (isFirst) stockPileIndex++;
+                            else stockPileIndex2++;
+                        }
+                    }
+                }
+                
+                    } '>
+        </div> 
+        <div class="code-showcase"
+            data-title = "Card Interaction Manager"
+            data-warning = "Note: Couldn't remove /card code because of the library I am using."
+            data-text = '
+            using System.Collections.Generic;
+            using UnityEngine;
+            
+            public class CardInteractionManager : MonoBehaviour
+            {
+                [SerializeField] private LayerMask cardLayer;
+                [SerializeField] private CardSpawner spawner;
+                [SerializeField] private CoopManager coopManager;
+            
+                public bool mayInteract;
+            
+                //TODO: Change this to private
+                public List<Card> currentCards = new();
+            
+                private Vector2 offset;
+            
+                private void OnEnable()
+                {
+                    mayInteract = true;
+                }
+            
+                private void Update()
+                {
+                    //TODO: Combine detect stock pile and card
+                    DetectStockPile();
+            
+                    DetectCard();
+            
+                    if (currentCards.Count > 0) MoveCard();
+            
+                    if (currentCards.Count > 0 && Input.GetMouseButtonUp(0)) ReleaseCard();
+                }
+            
+                private void DetectStockPile()
+                {
+                    if (!Input.GetMouseButtonDown(0) || currentCards.Count > 0) return;
+            
+                    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
+                    //Shoot ray at mouse pos
+                    RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+            
+                    if (hit.collider != null)
+                    {
+                        if (hit.transform.TryGetComponent(out StockPile stockPile))
+                        {
+                            spawner.SpawnStockPileCards(stockPile.isFirst);
+                        }
+                    }
+                }
+            
+                private void DetectCard()
+                {
+                    if (!Input.GetMouseButtonDown(0) || currentCards.Count > 0 || !mayInteract) return;
+            
+                    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
+                    //Shoot ray at mouse pos
+                    RaycastHit2D[] hit = Physics2D.RaycastAll(mousePos, Vector2.zero, Mathf.Infinity, cardLayer);
+            
+                    //Loop through ray results and check if a valid card is in it
+                    if (hit.Length > 0)
+                    {
+                        Card card = null;
+                        int highestZOrder = -100;
+            
+                        //Calculate which card has the highest sortingOrder, check that one if it&apos;s valid
+                        for (int i = 0; i < hit.Length; i++)
+                        {
+                            Card hitCard = hit[i].transform.GetComponent<Card>();
+                            int zOrder = hitCard.spriteRenderer.sortingOrder;
+            
+                            if (zOrder > highestZOrder)
+                            {
+                                highestZOrder = zOrder;
+                                card = hitCard;
+                            }
+                        }
+            
+                        //If a valid card is found, detach it from it&apos;s home and start dragging it
+                        if (card && card.homeCard != null && !card.isLocked)
+                        {
+                            offset = card.gameObject.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
+                            Card cardToCheck = card;
+            
+                            //TODO: Adjust algorithm below to add this into automaticly
+                            currentCards.Add(cardToCheck);
+            
+                            for (int i = 0; i < 100; i++)
+                            {
+                                if (cardToCheck.attachedCard)
+                                {
+                                    currentCards.Add(cardToCheck.attachedCard);
+                                    cardToCheck = cardToCheck.attachedCard;
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                                
+                            //TODO: Optimize this by putting it into a single loop and releasing cards after if they may not move
+                            if (currentCards.Count > 1)
+                            {
+                                for (int i = 0; i < currentCards.Count; i++)
+                                {
+                                    if (i + 1 > currentCards.Count - 1)
+                                    {
+                                        break;
+                                    }
+            
+                                    //TODO: Highlight this card for effect for why the player can&apos;t move this pile
+                                    if (!currentCards[i].MayMove(currentCards[i + 1]))
+                                    {
+                                        //TODO: Make this a function
+                                        currentCards[0].homeCard.AttachCardToMe(currentCards[0]);
+            
+                                        //TODO: Make this a function or something (see below)
+                                        for (int e = 1; e < currentCards.Count; e++)
+                                        {
+                                            currentCards[e - 1].AttachCardToMe(currentCards[e]);
+                                            currentCards[e].boxCollider.enabled = true;
+                                        }
+            
+                                        //Order layer
+                                        currentCards.Clear();
+                                        return;
+                                    }
+                                }
+                            }
+            
+                            for (int i = 0; i < currentCards.Count; i++)
+                            {
+                                currentCards[i].spriteRenderer.sortingOrder = 100 + i;
+                                currentCards[i].boxCollider.enabled = false;
+                                currentCards[i].homeCard.attachedCard = null;
+                            }
+                        }
+                    }
+                }
+            
+                Vector2 pos;
+                Vector2 scale;
+            
+                private void ReleaseCard()
+                {
+                    bool foundNewHome = false;
+            
+                    pos = currentCards[0].transform.position;
+                    scale = new Vector2((533 / 100) * 0.28f, (764 / 100) * 0.28f);
+            
+                    //TODO: Improve this by using the collider or something as scale reference
+            
+                    //Shoot ray at mouse pos
+                    RaycastHit2D[] hit = Physics2D.BoxCastAll(currentCards[0].transform.position, new Vector2((533 / 100) * 0.28f, (764 / 100) * 0.28f), 0, Vector2.zero, cardLayer);
+            
+                    Card potentialHomeCard = null;
+                    int highestZOrder = -100;
+            
+                    //Calculate which card has the higest sortingOrder, check that one if it&apos;s valid
+                    for (int i = 0; i < hit.Length; i++)
+                    {
+                        Card hitCard = hit[i].transform.GetComponent<Card>();
+                        int zOrder = hitCard.spriteRenderer.sortingOrder;
+            
+                        if (zOrder > highestZOrder)
+                        {
+                            highestZOrder = zOrder;
+                            potentialHomeCard = hitCard;
+                        }
+                    }
+            
+                    //Loop through ray results and check if a valid card is in it
+                    if (potentialHomeCard != null)
+                    {
+                        //Check if there&apos;s a valid home card for the current card, if it&apos;s found attach it to the new home card
+                        //  TODO: add check to make sure a stack of cards can&apos;t attach to anything but the most bottom card
+                        if (potentialHomeCard && !currentCards.Contains(potentialHomeCard))
+                        {
+                            foundNewHome = true;
+                            potentialHomeCard.AttachCardToMe(currentCards[0]);
+            
+                            for (int i = 1; i < currentCards.Count; i++)
+                            {
+                                currentCards[i - 1].AttachCardToMe(currentCards[i]);
+                            }
+                        }
+                    }
+            
+                    if (!foundNewHome)
+                    {
+                        currentCards[0].homeCard.AttachCardToMe(currentCards[0]);
+            
+                        //TODO: Make this a function or something (see above)
+                        for (int i = 1; i < currentCards.Count; i++)
+                        {
+                            currentCards[i - 1].AttachCardToMe(currentCards[i]);
+                        }
+                    }
+            
+                    for (int i = 0; i < currentCards.Count; i++)
+                    {
+                        currentCards[i].boxCollider.enabled = true;
+                    }
+                    //Order layer
+                    currentCards.Clear();
+                }
+            
+                private void MoveCard()
+                {
+                    //Move card with offset
+                    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    Vector2 position = offset + mousePosition;
+            
+                    for (int i = 0; i < currentCards.Count; i++)
+                    {
+                        currentCards[i].transform.position = position - new Vector2(0, i != 0 ? i * (currentCards[i].spaceBetweenCards) : 0);
+                    }
+                }
+            
+                private void OnDrawGizmos()
+                {
+                    Gizmos.DrawWireCube(pos, scale);   
+                }
+            }
+            '>
+    </div>
+
+    <script defer type="text/javascript" src="Components/HorizontalCard.js"></script>
+
+    <script defer type="text/javascript" src="Components/CodeShowcase.js"></script>
+
+    <script defer type="text/javascript" src="Components/squareCard.js"></script>
+
+    <script defer type="text/javascript" src="Components/footer.js"></script>
+</body>
+</html>
