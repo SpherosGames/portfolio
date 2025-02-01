@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="javascript.js"></script>
+    <link href="node_modules/rainbow-code/themes/css/tomorrow-night.css" rel="stylesheet" type="text/css" media="screen">
+    <script src="node_modules/rainbow-code/dist/rainbow.js"></script>
+    <script src="node_modules/rainbow-code/src/language/csharp.js"></script>
+</head>
+
+<body class="bg-gradient-to-b from-[#003459] to-[#00a8e8]" onload="DeativateDropDown()">
+    <script defer type="text/javascript" src="Components/navbar.js"></script>
+
+    <div class="main flex flex-col">
+        <p class="text-center text-white text-7xl lg:text-9xl my-10 font-bold tracking-wide">
+            SpaceShip Shooter
+        </p>
+
+        <video autoplay controls class="w-[50%] place-self-center">
+            <source src="Img/Videos/SpaceShipShooterDemo.mp4" type="video/mp4" />
+        </video>
+
+        <div class="horizontal-card"
+            data-title="Project Description"
+            data-description="A simple futuristic spaceship shooter. The goal of the game is to defeat all the turrets by shooting at them and dodging their bullets."
+            data-image-src="Img/SpaceShipShooter1.png"
+            data-image-description="Screenshot of the game."
+            data-place-self="start"
+            >
+        </div>
+
+        <div class="horizontal-card"
+            data-title="Player Movement"
+            data-description="The player movement is quite simple.
+            It uses a Rigidbody with Addforce to make sure the movement has collision, and it feels floaty, like a spaceship.
+            The rigidbody has no gravity and just moves based on the forward direction.
+            The forward direction is set to the camera’s forward direction, so the player always looks where camera is looking.
+            The game also contains a barrel roll.
+            This is activated with the spacebar and then turns around the forward vector using Quaternion.AngleAxis."
+            data-image-src="Img/SpaceShipShooter2.png"
+            data-image-description="Screenshot of the game."
+            data-place-self="end"
+            >
+        </div>
+
+        <div class="horizontal-card"
+            data-title="Shooting"
+            data-description="The shooting is “physics based”.
+            Meaning that the bullets are all Rigidbody’s that are spawned and shot forward. There’s also a laser that shows the player where his bullets will land.
+            It uses a raycast shot from the player’s position in its forward direction.
+            If the ray hit’s something, like a building, it sets it’s linerenderer to that position.
+            If the ray doesn’t hit anything, the linerenderer is set to a really far position instead.
+            The crosshair also gets set based on this information."
+            data-image-src="Img/SpaceShipShooterShooting.png"
+            data-image-description="The player shooting."
+            data-place-self="start"
+            >
+        </div>
+
+        <div class="horizontal-card"
+            data-title="Art"
+            data-description="The art used in this game is an asset pack made by Animpic Studio: “POLY - Megapolis City Pack”.
+            However, I did replace all materials with my own neon ones. Meaning I turned on emissions and turned up the intensity.
+            I used Unity terrain system for the textured ground.
+            I also used a custom skybox to give the game a realistic dark feeling."
+            data-image-src="Img/SpaceShipShooterArt.png"
+            data-image-description="The level of the game."
+            data-place-self="end"
+            >
+        </div>
+
+        <div class="horizontal-card"
+            data-title="Polish"
+            data-description="
+            -	Sound effects <br>
+            &emsp;&emsp;o	I added sound effects to all actions in the game. <br>
+            -	Visual effects <br>
+            &emsp;&emsp;o	I added visual effects to some parts of the game. This gives good visual feedback to the game. I used an asset pack for the visual effects. <br>
+            -	Damage numbers <br>
+            &emsp;&emsp;o	When damaging an enemy, it shows how much damage you dealt above it. This shows intuitively that damage is decreased based on the distance from the enemy. <br>
+            -	Font <br>
+            &emsp;&emsp;o	The game uses a custom font to add to the futuristic feel. <br>
+            -	Custom camera shake <br>
+            &emsp;&emsp;o	I made a custom extension for Cinemachine for the camera shake. This makes it really easy to add camera shake to actions in the game. <br>
+            -	Menu animations <br>
+            &emsp;&emsp;o	The win/lose screen has an animation that moves the menu from below the screen to the middle of the screen. <br>
+            "
+            data-image-src="Img/SpaceShipShooterMainMenu.png"
+            data-image-description="The custom font found, among other places, in the main menu."
+            data-place-self="start"
+            >
+        </div>
+
+    <p class="w-fit rounded mx-auto p-5 text-3xl text-gray-300 mt-5 outline">Code Showcase</p><br/>
+
+    <div>
+        <div class="code-showcase"
+            data-title = "SpaceShip Controller"
+            data-warning = "Note: Couldn't remove /rigidbody code because of the library I am using."
+            data-text = '
+            using System.Collections;
+            using System.Collections.Generic;
+            using System.Timers;
+            using UnityEngine;
+            using UnityEngine.UI;
+
+            [RequireComponent(typeof(Rigidbody))]
+            [RequireComponent(typeof(SpaceShipShooting))]
+            public class SpaceShipController : Unit
+            {
+                [SerializeField] private Transform mainCamera;
+                [SerializeField] private CameraShake cinemachineCameraShake;
+                [SerializeField] private float cameraShakeDuration = 1f;
+                [SerializeField] private float cameraShakeIntensity = 0.1f;
+                [SerializeField] private float moveSpeed;
+                [SerializeField] private float rotationSpeed;
+                [SerializeField] private float barrelRotationSpeed;
+                [SerializeField] private Vector3 rotationOffset;
+                [SerializeField] private Slider healthSlider;
+                [SerializeField] private AudioSource barrelRollSource;
+                [SerializeField] private AudioClip[] barrelRollSFX;
+
+                public bool doingBarrelRoll { get; private set; }
+                private float currentRotation;
+
+                private Rigidbody rb;
+
+                private void Awake()
+                {
+                    rb = GetComponent<Rigidbody>();
+                }
+
+                private void Start()
+                {
+                    healthSlider.maxValue = maxHealth;
+                }
+
+                private void FixedUpdate()
+                {
+                    Move();
+                }
+
+                private void BarrelRoll()
+                {
+                    //Trigger barrelroll
+                    if (Input.GetKeyDown(KeyCode.Space) && !doingBarrelRoll)
+                    {
+                        doingBarrelRoll = true;
+                        currentRotation = 0;
+                        barrelRollSource.clip = barrelRollSFX[Random.Range(0, barrelRollSFX.Length)];
+                        barrelRollSource.Play();
+                    }
+
+                    if (doingBarrelRoll)
+                    {
+                        //Calculate rotation
+                        Quaternion rollRotation = Quaternion.AngleAxis(barrelRotationSpeed * Time.deltaTime, Vector3.forward);
+
+                        transform.rotation *= rollRotation;
+
+                        currentRotation += barrelRotationSpeed * Time.deltaTime;
+
+                        //Check if rotation is done
+                        if (currentRotation >= 360)
+                        {
+                            doingBarrelRoll = false;
+                        }
+                    }
+                }
+
+                protected override void Update()
+                {
+                    base.Update();
+
+                    Rotation();
+
+                    BarrelRoll();
+
+                    healthSlider.value = health;
+                }
+
+                private void Rotation()
+                {
+                    if (doingBarrelRoll) return;
+
+                    transform.forward = mainCamera.transform.forward;
+                }
+
+                private void Move()
+                {
+                    float horizontal = Input.GetAxisRaw("Horizontal");
+                    float vertical = Input.GetAxisRaw("Vertical");
+
+                    Vector3 input = new Vector3(horizontal, 0, vertical).normalized;
+
+                    if (input.magnitude >= 0.1f)
+                    {
+                        Vector3 moveDir = transform.forward * input.z + transform.right * input.x;
+                        moveDir = Quaternion.Euler(rotationOffset) * moveDir;
+                        rb.AddForce(moveSpeed * Time.fixedDeltaTime * moveDir);
+                    }
+                }
+
+                public override void Hit(float damage)
+                {
+                    cinemachineCameraShake.Shake(cameraShakeDuration, cameraShakeIntensity);
+
+                    if (doingBarrelRoll) return;
+
+                    base.Hit(damage);
+                }
+            }
+
+            '>
+        </div>
+
+        <div>
+            <div class="code-showcase"
+                data-title="SpaceShip Shooting"
+                data-warning="Note: Couldn't remove /bullet, /rigidbody and /spaceshipcontroller code because of the library I am using."
+                data-text = '
+                using TMPro;
+                using UnityEngine;
+                using UnityEngine.UI;
+
+                public class SpaceShipShooting : MonoBehaviour
+                {
+                    [SerializeField] private CameraShake cinemachineCameraShake;
+                    [SerializeField] private GameObject bullet;
+                    [SerializeField] private Transform shootPos;
+                    [SerializeField] private float force;
+                    [SerializeField] private float fireRate;
+                    [SerializeField] private float lookRange;
+                    [SerializeField] private float lookWidth;
+                    [SerializeField] private LayerMask turretLayer;
+                    [SerializeField] private float bulletAmount;
+                    [SerializeField] private float bulletMaxAmount;
+                    [SerializeField] private TMP_Text bulletAmountText;
+                    [SerializeField] private LayerMask worldLayer;
+                    [SerializeField] private LineRenderer laserLine;
+                    [SerializeField] private Image crosshair;
+                    [SerializeField] private AudioSource fireAudioSource;
+                    [SerializeField] private AudioClip[] fireSFX;
+
+                    private SpaceShipController spaceShipController;
+
+                    private float timer;
+
+                    private void Awake()
+                    {
+                        spaceShipController = GetComponent<SpaceShipController>();
+                    }
+
+                    private void Update()
+                    {
+                        timer -= Time.deltaTime;
+
+                        if (MayShoot())
+                        {
+                            Shoot();
+                        }
+
+                        bulletAmountText.SetText($"{bulletAmount}/{bulletMaxAmount}");
+                    }
+
+                    private void LateUpdate()
+                    {
+                        Laser();
+                    }
+
+                    private void Laser()
+                    {
+                        if (Physics.Raycast(shootPos.position, shootPos.forward, out RaycastHit hit, Mathf.Infinity, worldLayer))
+                        {
+                            laserLine.SetPositions(new Vector3[] { shootPos.position, hit.point });
+
+                            crosshair.transform.position = Camera.main.WorldToScreenPoint(hit.point);
+                        }
+                        else
+                        {
+                            laserLine.SetPositions(new Vector3[] { shootPos.position, shootPos.position + transform.forward * 100 });
+
+                            crosshair.transform.position = Camera.main.WorldToScreenPoint(shootPos.position + transform.forward * 100);
+                        }
+                    }
+
+                    private bool MayShoot()
+                    {
+                        if (!Input.GetMouseButtonDown(0)) return false;
+
+                        if (bulletAmount <= 0) return false;
+
+                        if (timer > 0) return false;
+
+                        return true;
+                    }
+
+                    private void Shoot()
+                    {
+                        if (spaceShipController.doingBarrelRoll) return;
+
+                        fireAudioSource.clip = fireSFX[Random.Range(0, fireSFX.Length)];
+                        fireAudioSource.Play();
+
+                        timer = fireRate;
+                        bulletAmount--;
+                        Rigidbody spawnedBullet = Instantiate(bullet, shootPos.position, transform.rotation).GetComponent<Rigidbody>();
+                        spawnedBullet.AddForce(transform.forward * force, ForceMode.Impulse);
+                        Bullet spawnedBulletBullet = spawnedBullet.GetComponent<Bullet>();
+                    }
+
+                    public void ReceiveBullets(int amount)
+                    {
+                        cinemachineCameraShake.Shake(1, 0.1f);
+
+                        bulletAmount += amount;
+
+                        bulletAmount = Mathf.Clamp(bulletAmount, 0, bulletMaxAmount);
+                    }
+
+                    private void OnDrawGizmosSelected()
+                    {
+                        Gizmos.DrawWireSphere(transform.position, lookRange);
+                    }
+                }
+
+                
+                    } '>
+        </div> 
+        <div class="code-showcase"
+            data-title = "Custom Cinemachine Camera Shake"
+            data-warning = ""
+            data-text = '
+            using Cinemachine;
+            using System.Collections;
+            using System.Collections.Generic;
+            using System.Timers;
+            using UnityEngine;
+
+            [ExecuteInEditMode]
+            public class CameraShake : CinemachineExtension
+            {
+                [SerializeField] private float speed;
+                [SerializeField] private float intensity;
+
+                private float timer;
+
+                private void DecreaseShakeTimer()
+                {
+                    if (timer > 0)
+                    {
+                        timer -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        intensity = 0;
+                    }
+                }
+
+                public void Shake(float _duration, float _intensity)
+                {
+                    intensity = _intensity;
+
+                    timer = _duration;
+                }
+
+                protected override void PostPipelineStageCallback(CinemachineVirtualCameraBase vcam,
+                    CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
+                {
+                    DecreaseShakeTimer();
+
+                    Vector3 pos = state.RawPosition;
+
+                    Vector3 shake = new Vector3((Mathf.PerlinNoise(Time.time * speed, 0.5f) + 0.0352f) * 2 - 1, (Mathf.PerlinNoise(0.5f, Time.time * speed) + 0.0345f) * 2 - 1, 0f) * intensity;
+
+                    state.RawPosition = pos + shake;
+                }
+            }
+            '>
+    </div>
+
+    <script defer type="text/javascript" src="Components/HorizontalCard.js"></script>
+
+    <script defer type="text/javascript" src="Components/CodeShowcase.js"></script>
+
+    <script defer type="text/javascript" src="Components/squareCard.js"></script>
+
+    <script defer type="text/javascript" src="Components/footer.js"></script>
+</body>
+</html>
